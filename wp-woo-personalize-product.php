@@ -1,3 +1,5 @@
+<?php
+
 /*
 Plugin Name: WP-Woo-Personalize-Product
 Plugin URI:
@@ -8,6 +10,16 @@ Author URI: https://www.coodesoft.com.ar
 License: GPL v3
 */
 
-<?php
+function coode_WPP_short_code_tour() {
+    return '<div>Esto es el contenido</div>';
+}
 
+function coode_WPP_on_activate()
+{
+    //add_option('mi_opcion',255,'','yes');
+}
+
+
+add_shortcode('WPP_tour', 'coode_WPP_short_code_tour');
+register_activation_hook(__FILE__,'coode_WPP_on_activate');
 ?>
