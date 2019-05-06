@@ -35,7 +35,7 @@
     vertical-align: middle;
     background: #ef0d33;
     border-radius: 16px;
-    color: white;
+    color: #777;
     font-size: 13px;
     width: 70px;
     text-align: center;
@@ -64,7 +64,7 @@
 
 .WPP_container .WPP-inner-wrapper .deal-headline .inner{
     display: inline-block;
-    color: white;
+    color: #777;
     background: #ef0d33;
     font-size: 13px;
     padding: 4px 6px;
@@ -123,7 +123,7 @@
 .stage-headline.active .circle {
     background: #2ecc71;
     border-color: #2ecc71;
-    color: white;
+    color: #777;
 }
 
 .stage-headline .circle {
@@ -132,17 +132,17 @@
     height: 30px;
     width: 30px;
     border: 2px solid white;
-        border-top-color: white;
-        border-right-color: white;
-        border-bottom-color: white;
-        border-left-color: white;
+        border-top-color: #777;
+        border-right-color: #777;
+        border-bottom-color: #777;
+        border-left-color: #777;
     border-radius: 50%;
     text-align: center;
     line-height: 28px;
     vertical-align: middle;
     font-size: 1.6em;
     margin: auto;
-    color: white;
+    color: #777;
 }
 
 .stage-headline h5 {
@@ -229,7 +229,7 @@
 .stage .square .inner .details {
     position: relative;
     text-align: center;
-    color: white;
+    color: #777;
 }
 
 .m-t-20 { margin-top: 20px; }
@@ -300,7 +300,7 @@
     height: 50px;
     border-radius: 50%;
     border: 2px solid white;
-    color: white;
+    color: #777;
     line-height: 50px !important;
     text-align: center;
     font-size: 21px;
@@ -362,7 +362,7 @@
 .helper-buttons-row .quantity {
     display: inline-block;
     margin: 0 5px;
-    color: white;
+    color: #777;
     vertical-align: top;
     -webkit-transition: all 0.4s ease-out;
     transition: all 0.4s ease-out;
@@ -376,8 +376,8 @@ label {
 }
 
 .helper-buttons-row .quantity input {
-    border-color: white;
-    color: white;
+    border-color: #777;
+    color: #777;
     width: 40px;
     -webkit-appearance: none;
     margin: 0;
@@ -398,7 +398,7 @@ label {
     width: 240px;
     height: 40px;
     background: black;
-    color: white;
+    color: #777;
     text-align: center;
     line-height: 40px;
     vertical-align: middle;
@@ -444,4 +444,26 @@ label {
 }
 .button.red {
     background: #ef0d33;
+}
+
+.stages .stage .square .inner .details .text-tip.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+}
+
+.stages .stage .square .inner .details .text-tip .closer {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+.closer {
+    width: 20px;
+    height: 20px;
+    margin-top: -4px;
+    display: block;
+    position: relative;
+    cursor: pointer;
 }

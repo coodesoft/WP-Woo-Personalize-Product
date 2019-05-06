@@ -1,7 +1,7 @@
 <?php
 
 /*
-Plugin Name: WP-Woo-Personalize-Product
+Plugin Name: WP-Woo-Personalize-Product (En Desarrollo)
 Plugin URI:
 Description: Plugin de creación de productos personalizados, para ser usado en conjunto con WooCommerce, por parte de posibles clientes.
 Version: 1.0
@@ -76,11 +76,9 @@ function coode_WPP_short_code_tour() {
                             <div class="image bg back" style="background: url(https://instablock.me/wp-content/uploads/2017/01/insta-4-2.jpg)"></div>
                         </div>
                         <div class="details m-t-20">
-                            <h5>
-                                OSB                    </h5>
-                            <div class="example">
-                                <i class="fa fa-info-circle"></i>
-                                About the material
+                            <h5>OSB</h5>
+                            <div class="wpp-info-mat">
+                                <i class="fa fa-info-circle"></i>Sobre el material
                             </div>
                             <div class="text-tip">
                                 <div class="inner-w">
@@ -113,9 +111,9 @@ function coode_WPP_short_code_tour() {
                         <div class="details m-t-20">
                             <h5>
                                 Wood                    </h5>
-                            <div class="example">
+                            <div class="wpp-info-mat">
                                 <i class="fa fa-info-circle"></i>
-                                About the material
+                                Sobre el material
                             </div>
                             <div class="text-tip">
                                 <div class="inner-w">
