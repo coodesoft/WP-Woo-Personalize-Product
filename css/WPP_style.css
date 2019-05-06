@@ -233,6 +233,8 @@
 }
 
 .m-t-20 { margin-top: 20px; }
+.m-t-40 { margin-top: 40px; }
+.m-t-10 { margin-top: 10px; }
 
 .stage .square .inner .details h5 {
     font-size: 15px;
@@ -272,4 +274,174 @@
 
 .stage .square .inner .details .example .fa {
     margin-right: 4px;
+}
+
+.stages .stages .stage.down {
+    transform: translateY(50px);
+    -webkit-transform: translateY(50px);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.ta-c { text-align: center; }
+
+.stages .stage .icons {
+    position: relative;
+    text-align: center;
+}
+
+.stages .stage .icons .icon {
+    display: inline-block;
+    width: 150px;
+}
+
+.stages .stage .icons .icon .fa {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid white;
+    color: white;
+    line-height: 50px !important;
+    text-align: center;
+    font-size: 21px;
+    cursor: pointer;
+    -webkit-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+}
+
+.stages .stage .icons .icon p {
+    margin-top: 10px;
+}
+
+.stages .stage .before-checkout {
+    position: relative;
+    height: 150px;
+    width: auto;
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.stages .stage .before-checkout .the-details {
+    position: relative;
+    width: 260px;
+    height: 130px;
+    float: right;
+    text-align: center;
+}
+
+.center-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: table;
+}
+
+.center-wrapper .center {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.stages .stage .before-checkout .the-details p {
+    margin-top: 14px;
+    background: white;
+    color: black;
+    padding: 4px 20px;
+    display: inline-block;
+}
+
+.helper-buttons-row {
+    position: relative;
+    text-align: center;
+}
+
+.helper-buttons-row .quantity {
+    display: inline-block;
+    margin: 0 5px;
+    color: white;
+    vertical-align: top;
+    -webkit-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+}
+
+.helper-buttons-row .quantity label {
+    margin-right: 5px;
+}
+label {
+    font-size: 13px;
+}
+
+.helper-buttons-row .quantity input {
+    border-color: white;
+    color: white;
+    width: 40px;
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.helper-buttons-row .button {
+    display: inline-block;
+    margin: 0 5px;
+    vertical-align: top;
+}
+
+.button.green {
+    background: #2ecc71;
+}
+
+.button {
+    position: relative;
+    width: 240px;
+    height: 40px;
+    background: black;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+}
+
+#start-over {
+    width: 130px;
+    height: 30px;
+    line-height: 30px;
+}
+.button.red {
+    background: #ef0d33;
+}
+
+.stages .stage .added-panel.down {
+    transform: translateY(30px);
+    -webkit-transform: translateY(30px);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.helper .inner-wrapper .stages .stage .added-panel {
+    position: absolute;
+    bottom: 44px;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    -webkit-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+}
+
+.helper .inner-wrapper .stages .stage .added-panel .buttons .button {
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+    width: 220px;
+}
+.button.red {
+    background: #ef0d33;
 }
