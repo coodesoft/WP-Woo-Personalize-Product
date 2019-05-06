@@ -1,0 +1,275 @@
+.WPP_container{
+    position: absolute;
+    top: 40px;
+    height: calc( 100% - 80px );
+    right: 0;
+    width: 100%;
+    background-color: rgba(40,40,40,0.7);
+}
+
+.WPP_container .WPP-inner-wrapper{
+    position: absolute;
+    width: 1000px;
+    height: 410px;
+    left: 50%;
+    margin-left: -500px;
+    top: 50%;
+    margin-top: -205px;
+}
+
+.WPP_container .WPP-inner-wrapper .headline{
+    position: relative;
+    text-align: center;
+    height: 38px;
+}
+
+.WPP_container .WPP-inner-wrapper .headline h2 { font-size: 2.8em; }
+
+.WPP_container .WPP-inner-wrapper .headline .back-button {
+    position: absolute;
+    top: 50%;
+    margin-top: -15px;
+    left: 66px;
+    height: 24px;
+    line-height: 26px;
+    vertical-align: middle;
+    background: #ef0d33;
+    border-radius: 16px;
+    color: white;
+    font-size: 13px;
+    width: 70px;
+    text-align: center;
+    cursor: pointer;
+    transform: translateX(-50px);
+    -webkit-transform: translateX(-50px);
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 0.26s ease-out;
+    transition: all 0.26s ease-out;
+}
+
+.WPP_container .WPP-inner-wrapper .deal-headline{
+    position: absolute;
+    top: 46px;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    tranform: translateX(-30px);
+    -webkit-transform: translateX(-30px);
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+}
+
+.WPP_container .WPP-inner-wrapper .deal-headline .inner{
+    display: inline-block;
+    color: white;
+    background: #ef0d33;
+    font-size: 13px;
+    padding: 4px 6px;
+}
+
+.WPP_container .WPP-inner-wrapper .stages-headline{
+    position: relative;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.WPP_container .WPP-inner-wrapper .stages-headline .line.first { left: 115px;}
+
+.WPP_container .WPP-inner-wrapper .stages-headline .line {
+    position: absolute;
+    top: 14px;
+    height: 2px;
+    background: white;
+    width: 170px;
+}
+
+.WPP_container .WPP-inner-wrapper .stages-headline .line .inner-line {
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 100%;
+    top: 0;
+    background: #2ecc71;
+    -webkit-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+}
+
+.WPP_container .WPP-inner-wrapper .stages-headline .line.second { left: 315px; }
+
+.WPP_container .WPP-inner-wrapper .stages-headline .line.third { right: 315px; }
+
+.WPP_container .WPP-inner-wrapper .stages-headline .line.fourth { right: 115px; }
+
+.WPP_container .WPP-inner-wrapper .stages-headline .stage-headline.active {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.WPP_container .WPP-inner-wrapper .stages-headline .stage-headline {
+    position: relative;
+    width: calc( 100% / 5 );
+    text-align: center;
+    float: left;
+    -webkit-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+}
+
+.clear { clear: both; }
+
+.stage-headline.active .circle {
+    background: #2ecc71;
+    border-color: #2ecc71;
+    color: white;
+}
+
+.stage-headline .circle {
+    position: relative;
+    display: block;
+    height: 30px;
+    width: 30px;
+    border: 2px solid white;
+        border-top-color: white;
+        border-right-color: white;
+        border-bottom-color: white;
+        border-left-color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 28px;
+    vertical-align: middle;
+    font-size: 1.6em;
+    margin: auto;
+    color: white;
+}
+
+.stage-headline h5 {
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.stage-headline .indication {
+    position: absolute;
+    bottom: -25px;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-20px);
+    -webkit-transform: translateX(-20px);
+    -webkit-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+}
+
+.inner-wrapper .stages .stage {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -webkit-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+    text-align: center;
+}
+
+.stages .stage .square {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 180px;
+    margin: 0 12px;
+    color: black;
+}
+
+.stages .stage .square .inner {
+    position: relative;
+    -webkit-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+}
+
+.stage .square .inner .images-wrapper {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    margin: auto;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+}
+
+.bg {
+    -webkit-background-size: cover !important;
+    -moz-background-size: cover !important;
+    -o-background-size: cover !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+}
+
+.stage .square .inner .images-wrapper .image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -webkit-transition: all 0.26s ease-out;
+    transition: all 0.26s ease-out;
+}
+
+.stage .square .inner .images-wrapper .image.back {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.stage .square .inner .details {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.m-t-20 { margin-top: 20px; }
+
+.stage .square .inner .details h5 {
+    font-size: 15px;
+}
+
+.stage .square .inner .details .example {
+    position: relative;
+    margin-top: 10px;
+    font-size: 13px;
+    cursor: pointer;
+    -webkit-transition: all 0.26s ease-out;
+    transition: all 0.26s ease-out;
+}
+
+.stage .square .inner .details .text-tip {
+    position: fixed;
+    bottom: calc( (100vh - 400px) / 2 );
+    right: 50%;
+    margin-right: -300px;
+    width: 600px;
+    font-size: 13px;
+    height: auto;
+    text-align: left;
+    line-height: 1.5;
+    padding: 50px;
+    z-index: 100;
+    background: white;
+    color: black;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    -webkit-transform: translateY(10px);
+    -webkit-transition: all 0.26s ease-out;
+    transition: all 0.26s ease-out;
+}
+
+.stage .square .inner .details .example .fa {
+    margin-right: 4px;
+}
