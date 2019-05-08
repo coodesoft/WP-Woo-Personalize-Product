@@ -296,7 +296,7 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    border: 2px solid white;
+    border: 2px solid #777;
     color: #777;
     line-height: 50px !important;
     text-align: center;
@@ -304,6 +304,12 @@
     cursor: pointer;
     -webkit-transition: all 0.4s ease-out;
     transition: all 0.4s ease-out;
+}
+
+.icons .icon .fa:hover {
+    background: #ef0d33;
+    color: white!important;
+    border-color: #fff!important;
 }
 
 .stages .stg .icons .icon p {
@@ -476,6 +482,25 @@ label {
     cursor: pointer;
 }
 
+.closer::after {
+    -webkit-transform: rotate(45deg) translateY(6px) translateX(6px);
+    transform: rotate(45deg) translateY(6px) translateX(6px);
+}
+.closer::before {
+    -webkit-transform: rotate(-45deg) translateY(6px) translateX(-6px);
+    transform: rotate(-45deg) translateY(6px) translateX(-6px);
+}
+.closer::after, .closer::before {
+    width: 20px;
+    height: 2px;
+    background-color: #000;
+    content: " ";
+    display: block;
+    position: absolute;
+}
+.closer:hover::after {  background-color: #2ecc71; -webkit-transition: all 0.26s ease-out; transition: all 0.26s ease-out;}
+.closer:hover::before { background-color: #2ecc71; -webkit-transition: all 0.26s ease-out; transition: all 0.26s ease-out;}
+
 .stages .stg .square .inner .images-wrapper:hover {
     transform: scale(1.05) !important;
     -webkit-transform: scale(1.05) !important;
@@ -484,3 +509,117 @@ label {
 .stages .stg .square .inner .details .wpp-info-mat:hover { color: #2ecc71; }
 
 .stages { position: relative;}
+
+.form-circle {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    left: 50%;
+    margin-left: -65px;
+    top: 50%;
+    margin-top: -65px;
+    border-radius: 50%;
+    border: 3px solid #333;
+    -webkit-transition: all 0.26s ease-out;
+    transition: all 0.26s ease-out;
+}
+
+.form-rectangle {
+    position: absolute;
+    width: 90px;
+    height: 130px;
+    left: 50%;
+    margin-left: -45px;
+    top: 50%;
+    margin-top: -65px;
+    border: 3px solid #333;
+    -webkit-transition: all 0.26s ease-out;
+    transition: all 0.26s ease-out;
+}
+
+.form-square {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    left: 50%;
+    margin-left: -65px;
+    top: 50%;
+    margin-top: -65px;
+    border: 3px solid #333;
+    -webkit-transition: all 0.26s ease-out;
+    transition: all 0.26s ease-out;
+}
+
+@media screen and (min-width : 0px) and (max-width : 1024px) {
+  .stages .stg .square { width: 90px; margin: 0 10px 10px;}
+  .square .inner:hover .images-wrapper {    transform: scale(1) !important;-webkit-transform: scale(1) !important;  }
+  .square .inner .images-wrapper { width: 90px !important; height: 90px!important; }
+  .square .inner .details .text-tip {
+      right: 10px;
+      margin-right: 0;
+      width: calc( 100% - 20px );
+      bottom: auto;
+      overflow: auto;
+      top: 50%;
+      transform: translateY(-50%) !important;
+      height: auto;
+      background: transparent;
+      overflow: auto;
+      padding: 0;
+      max-height: calc( 100vh - 40px );
+  }
+  .square .inner .details .text-tip .inner-w {
+      position: relative;
+      background: white;
+      padding: 30px;
+  }
+  .stages {  margin-top: 35px;}
+  .stg { width: calc( 100% - 30px ); left: 15px;}
+  .stages-headline.m-t-50 { margin-top: 0; }
+  .stages-headline { text-align: center;}
+  .stages-headline { width: 100%;}
+  .stages-headline .line { display: none;}
+  .stage-headline { display: none; float: none; width: 100px;}
+  .stages-headline .stage-headline.active { display: inline-block;}
+  .stages-headline .stage-headline .circle {
+      font-size: 15px;
+      width: 30px;
+      height: 30px;
+      line-height: 28px;
+  }
+  .deal-headline {
+      position: fixed;
+      bottom: 0;
+      top: auto !important;
+      right: 0;
+      width: 100%;
+      height: auto;
+      line-height: 1.5;
+      padding: 10px;
+  }
+  .headline {
+     height: 34px;
+  }
+  .WPP-inner-wrapper{
+      width: 100vw;
+      left: 0;
+      margin-left: 0;
+      top: 0;
+      margin-top: 0;
+      height: 100%;
+  }
+  .WPP_container{ top: 60px;  height: calc( 100% - 80px );}
+
+  .form-circle {
+      width: 90px;  height: 90px;
+      margin-left: -45px; margin-top: -45px; border: 2px solid #333;
+  }
+
+  .form-rectangle {
+      height: 90px; margin-top: -45px; width: 62px;  margin-left: -31px; border: 2px solid #333;
+  }
+
+  .form-square {
+      width: 90px; height: 90px; margin-left: -45px; margin-top: -45px; border: 2px solid #333;
+  }
+}

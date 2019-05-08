@@ -5,11 +5,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 class CoodeWWPPlugin{
   constructor(){
+    this.data_products = {};
+
     this.info_mat      = document.getElementsByClassName('wpp-info-mat');
     this.info_mat_text = document.getElementsByClassName('text-tip');
     this.mat_DOM_obj   = document.getElementsByClassName('mat-btn');
     this.stage_DOM_obj = document.getElementsByClassName('stg');
     this.back_btns     = document.getElementsByClassName('back-button');
+    this.form_btns     = document.getElementsByClassName('wpp-form-btn');
+    this.size_btns     = document.getElementsByClassName('wpp-size-btn');
+    this.stage_hl_btns = document.getElementsByClassName('stage-headline');
 
     this.pedido = {'material':null, 'forma':null, 'imagen':null};
 
@@ -20,8 +25,8 @@ class CoodeWWPPlugin{
     this.next_step();
   }
 
-  next_step(){ this.go_to_step(this.actual_step+1); }
-  back_step(){ this.go_to_step(this.actual_step-1); }
+  next_step(){ this.go_to_step(Number(this.actual_step)+1); }
+  back_step(){ this.go_to_step(Number(this.actual_step)-1); }
 
   go_to_step(i){
     this.anterior_step = this.actual_step;
@@ -71,6 +76,24 @@ class CoodeWWPPlugin{
     //se recorren los botones para Volver
     for(let c=0;c<this.back_btns.length;c++){
       this.back_btns[c].addEventListener("click", (e)=>{ this.back_step(); console.log(e); });
+    }
+
+    //se recorren los botones de formas
+    for(let c=0;c<this.form_btns.length;c++){
+      this.form_btns[c].addEventListener("click", (e)=>{ this.next_step(); });
+    }
+
+    //se recorren los botones de tamaños
+    for(let c=0;c<this.size_btns.length;c++){
+      this.size_btns[c].addEventListener("click", (e)=>{ this.next_step(); });
+    }
+
+    //se recorren los botones del checkpoint
+    for(let c=0;c<this.stage_hl_btns.length;c++){
+      this.stage_hl_btns[c].addEventListener("click", (e)=>{
+        let d = e.target.offsetParent.getAttribute('data-target');
+        if(d<this.actual_step){ this.go_to_step(d); }
+      });
     }
   }
 

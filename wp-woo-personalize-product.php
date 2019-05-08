@@ -139,12 +139,140 @@ function coode_WPP_short_code_tour() {
             </div>
 
             <div class="stg down" id="stage-2">
-                <div id="stage-2-inner"></div>
+              <div id="stage-2-inner">
+
+                  <div class="square">
+                      <div class="inner s-shape" data-shape="circle" data-shape-name="Circle" data-id="17">
+                          <div class="images-wrapper">
+                            <div class="form-circle wpp-form-btn"></div>
+                          </div>
+                          <div class="details m-t-20">
+                              <h5>Circulo</h5>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="square">
+                      <div class="inner s-shape" data-shape="rectangle" data-shape-name="Rectangle" data-id="37">
+                          <div class="images-wrapper">
+                              <div class="form-rectangle wpp-form-btn"></div>
+                                          </div>
+                          <div class="details m-t-20">
+                              <h5>Rectángulo</h5>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="square">
+                      <div class="inner s-shape" data-shape="square" data-shape-name="Square" data-id="36">
+                          <div class="images-wrapper">
+                              <div class="form-square wpp-form-btn"></div>
+                                          </div>
+                          <div class="details m-t-20">
+                              <h5>Cuadrado</h5>
+                          </div>
+                      </div>
+                  </div>
+
+                </div>
                 <div class="clear"></div>
             </div>
 
             <div class="stg down" id="stage-3">
-                <div id="stage-3-inner"></div>
+                <div id="stage-3-inner">
+                    <div class="square">
+                        <div class="inner s-size" data-size="25-30" data-id="145" data-name="OXXL" data-size-name="10/12" data-price="54.99">
+                            <div class="images-wrapper">
+
+                                <div class="form-rectangle wpp-size-btn" style="width: 100px; margin-left: -50px; height: 120px; margin-top: -60px;"></div>
+                                </div>
+                            <div class="details">
+                                <h5>
+                                    Size:
+                                    10/12                        <span>
+                                        inch
+                                    </span>
+                                </h5>
+                                <h5 class="m-t-5">
+                                    Price:
+                                    <del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>109.99</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>54.99</span></ins>                    </h5>
+                                                        <h6 class="m-t-10">
+                                        ---
+                                    </h6>
+                                                    <div class="example">
+                                    <i class="fa fa-eye"></i>
+                                    Example
+                                    <div class="image-tip">
+                                        <div class="image bg" style="background: url(https://instablock.me/wp-content/uploads/2017/02/OXXL.jpg)"></div>
+                                        <div class="image bg back" style="background: url(https://instablock.me/wp-content/uploads/2017/02/OXXL2.jpg)"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="square">
+                        <div class="inner s-size" data-size="14-21" data-id="140" data-name="ON" data-size-name="5.5/8.25" data-price="34.99">
+                            <div class="images-wrapper">
+
+                                    <div class="form-rectangle wpp-size-btn" style="width: 56px; margin-left: -28px; height: 84px; margin-top: -42px;"></div>
+                                        </div>
+                            <div class="details">
+                                <h5>
+                                    Size:
+                                    5.5/8.25                        <span>
+                                        inch
+                                    </span>
+                                </h5>
+                                <h5 class="m-t-5">
+                                    Price:
+                                    <del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>69.99</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>34.99</span></ins>                    </h5>
+                                                        <h6 class="green m-t-10">
+                                                                                                                2 for $59.99<br>
+                                                                                                </h6>
+                                                    <div class="example">
+                                    <i class="fa fa-eye"></i>
+                                    Example
+                                    <div class="image-tip">
+                                        <div class="image bg" style="background: url(https://instablock.me/wp-content/uploads/2017/02/ON.jpeg)"></div>
+                                        <div class="image bg back" style="background: url(https://instablock.me/wp-content/uploads/2017/02/ON2.jpeg)"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="square">
+                        <div class="inner s-size" data-size="9-14" data-id="135" data-name="OS" data-size-name="3.5/5.25" data-price="19.99">
+                            <div class="images-wrapper">
+                                    <div class="form-rectangle wpp-size-btn" style="width: 36px; margin-left: -18px; height: 56px; margin-top: -28px;"></div>
+                                        </div>
+                            <div class="details">
+                                <h5>
+                                    Size:
+                                    3.5/5.25                        <span>
+                                        inch
+                                    </span>
+                                </h5>
+                                <h5 class="m-t-5">
+                                    Price:
+                                    <del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>39.99</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>19.99</span></ins>                    </h5>
+                                                        <h6 class="green m-t-10">
+                                                                                                                3 for $54.99<br>
+                                                                                                </h6>
+                                                    <div class="example">
+                                    <i class="fa fa-eye"></i>
+                                    Example
+                                    <div class="image-tip">
+                                        <div class="image bg" style="background: url(https://instablock.me/wp-content/uploads/2017/02/OS.jpg)"></div>
+                                        <div class="image bg back" style="background: url(https://instablock.me/wp-content/uploads/2017/02/OS2-2.jpg)"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
                 <div class="clear"></div>
             </div>
 
@@ -152,12 +280,12 @@ function coode_WPP_short_code_tour() {
                 <h5 class="ta-c m-t-20" style="line-height: 1.2"> Great. This is where the fun starts. <br> Please choose an awesome image and upload it to the system. </h5>
                 <div class="icons m-t-40">
                     <div class="icon" id="upload-photo">
-                        <i class="fa fa-cloud-upload" aria-hidden="true"></i>
-                        <p>Upload an image</p>
+                        <i class="fa fa-upload" aria-hidden="true"></i>
+                        <p>Subir imagen</p>
                     </div>
                     <div class="icon" id="go-take-photo">
                         <i class="fa fa-camera" aria-hidden="true"></i>
-                        <p>Take a picture</p>
+                        <p>Sacar foto</p>
                     </div>
                 </div>
             </div>
