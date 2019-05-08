@@ -41,36 +41,36 @@ function coode_WPP_short_code_tour() {
             <div class="line second" id="stage-line-2"><div class="inner-line"></div></div>
             <div class="line third" id="stage-line-3"><div class="inner-line"></div></div>
             <div class="line fourth" id="stage-line-4"><div class="inner-line"></div></div>
-            <div class="stage-headline active" id="stage-headline-1" data-target="1">
+            <div class="stage-headline" id="stage-headline-1" data-target="1">
                 <div class="circle">1</div>
                 <h5>Material</h5>
                 <div class="indication" id="indication-kind">OSB</div>
             </div>
             <div class="stage-headline" id="stage-headline-2" data-target="2">
                 <div class="circle">2</div>
-                <h5>Shape</h5>
+                <h5>Forma</h5>
                 <div class="indication" id="indication-shape">Rectangle</div>
             </div>
             <div class="stage-headline" id="stage-headline-3" data-target="3">
                 <div class="circle">3</div>
-                <h5>Size</h5>
+                <h5>Tamaño</h5>
                 <div class="indication" id="indication-size">20/20 cm</div>
             </div>
             <div class="stage-headline" id="stage-headline-4">
                 <div class="circle">4</div>
-                <h5>Image</h5>
+                <h5>Imagen</h5>
             </div>
             <div class="stage-headline" id="stage-headline-5">
                 <div class="circle">5</div>
-                <h5>Add to bag</h5>
+                <h5>Añadir al carrito</h5>
             </div>
             <div class="clear"></div>
         </div>
 
         <div class="stages" id="stages" data-position="1">
-            <div class="stage" id="stage-1">
+            <div class="stg down" id="stage-1">
                 <div class="square">
-                    <div class="inner special s-kind" data-kind="osb" data-kind-name="OSB" data-id="13">
+                    <div class="inner mat-btn s-kind" data-kind="osb" data-kind-name="OSB" data-id="13">
                         <div class="images-wrapper">
                             <div class="image bg" style="background: url(https://instablock.me/wp-content/uploads/2017/02/osb-e1498717936720.jpg)"></div>
                             <div class="image bg back" style="background: url(https://instablock.me/wp-content/uploads/2017/01/insta-4-2.jpg)"></div>
@@ -103,7 +103,7 @@ function coode_WPP_short_code_tour() {
                 </div>
 
                 <div class="square">
-                    <div class="inner special s-kind" data-kind="wood" data-kind-name="Wood" data-id="11">
+                    <div class="inner mat-btn s-kind" data-kind="wood" data-kind-name="Wood" data-id="11">
                         <div class="images-wrapper">
                             <div class="image bg" style="background: url(https://instablock.me/wp-content/uploads/2017/04/wood.jpg)"></div>
                             <div class="image bg back" style="background: url(https://instablock.me/wp-content/uploads/2017/03/wood-deal-3-back.jpg)"></div>
@@ -138,17 +138,17 @@ function coode_WPP_short_code_tour() {
                 <div class="clear"></div>
             </div>
 
-            <div class="stage down" id="stage-2">
+            <div class="stg down" id="stage-2">
                 <div id="stage-2-inner"></div>
                 <div class="clear"></div>
             </div>
 
-            <div class="stage down" id="stage-3">
+            <div class="stg down" id="stage-3">
                 <div id="stage-3-inner"></div>
                 <div class="clear"></div>
             </div>
 
-            <div class="stage down" id="stage-4">
+            <div class="stg down" id="stage-4">
                 <h5 class="ta-c m-t-20" style="line-height: 1.2"> Great. This is where the fun starts. <br> Please choose an awesome image and upload it to the system. </h5>
                 <div class="icons m-t-40">
                     <div class="icon" id="upload-photo">
@@ -162,7 +162,7 @@ function coode_WPP_short_code_tour() {
                 </div>
             </div>
 
-            <div class="stage down" id="stage-5">
+            <div class="stg down" id="stage-5">
                     <div class="before-checkout" id="before-checkout">
                         <div class="the-details">
                             <div class="center-wrapper">

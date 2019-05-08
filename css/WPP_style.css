@@ -165,7 +165,7 @@
     transition: all 0.4s ease-out;
 }
 
-.inner-wrapper .stages .stage {
+.inner-wrapper .stages .stg {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -176,7 +176,7 @@
     text-align: center;
 }
 
-.stages .stage .square {
+.stages .stg .square {
     position: relative;
     display: inline-block;
     vertical-align: top;
@@ -185,13 +185,13 @@
     color: black;
 }
 
-.stages .stage .square .inner {
+.stages .stg .square .inner {
     position: relative;
     -webkit-transition: all 0.4s ease-out;
     transition: all 0.4s ease-out;
 }
 
-.stage .square .inner .images-wrapper {
+.stg .square .inner .images-wrapper {
     position: relative;
     width: 180px;
     height: 180px;
@@ -211,7 +211,7 @@
     background-repeat: no-repeat !important;
 }
 
-.stage .square .inner .images-wrapper .image {
+.stg .square .inner .images-wrapper .image {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -221,12 +221,12 @@
     transition: all 0.26s ease-out;
 }
 
-.stage .square .inner .images-wrapper .image.back {
+.stg .square .inner .images-wrapper .image.back {
     opacity: 0;
     visibility: hidden;
 }
 
-.stage .square .inner .details {
+.stg .square .inner .details {
     position: relative;
     text-align: center;
     color: #777;
@@ -236,11 +236,11 @@
 .m-t-40 { margin-top: 40px; }
 .m-t-10 { margin-top: 10px; }
 
-.stage .square .inner .details h5 {
+.stg .square .inner .details h5 {
     font-size: 15px;
 }
 
-.stage .square .inner .details .example {
+.stg .square .inner .details .wpp-info-mat {
     position: relative;
     margin-top: 10px;
     font-size: 13px;
@@ -249,7 +249,7 @@
     transition: all 0.26s ease-out;
 }
 
-.stage .square .inner .details .text-tip {
+.stg .square .inner .details .text-tip {
     position: fixed;
     bottom: calc( (100vh - 400px) / 2 );
     right: 50%;
@@ -272,11 +272,11 @@
     transition: all 0.26s ease-out;
 }
 
-.stage .square .inner .details .example .fa {
+.stg .square .inner .details .wpp-info-mat .fa {
     margin-right: 4px;
 }
 
-.stages .stages .stage.down {
+.stages .down {
     transform: translateY(50px);
     -webkit-transform: translateY(50px);
     opacity: 0;
@@ -285,17 +285,17 @@
 
 .ta-c { text-align: center; }
 
-.stages .stage .icons {
+.stages .stg .icons {
     position: relative;
     text-align: center;
 }
 
-.stages .stage .icons .icon {
+.stages .stg .icons .icon {
     display: inline-block;
     width: 150px;
 }
 
-.stages .stage .icons .icon .fa {
+.stages .stg .icons .icon .fa {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -309,11 +309,11 @@
     transition: all 0.4s ease-out;
 }
 
-.stages .stage .icons .icon p {
+.stages .stg .icons .icon p {
     margin-top: 10px;
 }
 
-.stages .stage .before-checkout {
+.stages .stg .before-checkout {
     position: relative;
     height: 150px;
     width: auto;
@@ -324,7 +324,7 @@
     margin-right: auto;
 }
 
-.stages .stage .before-checkout .the-details {
+.stages .stg .before-checkout .the-details {
     position: relative;
     width: 260px;
     height: 130px;
@@ -346,7 +346,7 @@
     vertical-align: middle;
 }
 
-.stages .stage .before-checkout .the-details p {
+.stages .stg .before-checkout .the-details p {
     margin-top: 14px;
     background: white;
     color: black;
@@ -419,14 +419,14 @@ label {
     background: #ef0d33;
 }
 
-.stages .stage .added-panel.down {
+ .down {
     transform: translateY(30px);
     -webkit-transform: translateY(30px);
     opacity: 0;
     visibility: hidden;
 }
 
-.helper .inner-wrapper .stages .stage .added-panel {
+.helper .inner-wrapper .stages .stg .added-panel {
     position: absolute;
     bottom: 44px;
     right: 0;
@@ -436,7 +436,7 @@ label {
     transition: all 0.4s ease-out;
 }
 
-.helper .inner-wrapper .stages .stage .added-panel .buttons .button {
+.helper .inner-wrapper .stages .stg .added-panel .buttons .button {
     display: inline-block;
     margin: 0 5px;
     cursor: pointer;
@@ -446,17 +446,28 @@ label {
     background: #ef0d33;
 }
 
-.stages .stage .square .inner .details .text-tip.show {
-    opacity: 1;
-    visibility: visible;
+.stages .show {
+    opacity: 1 !important;
+    visibility: visible !important;
     transform: translateY(0);
     -webkit-transform: translateY(0);
 }
 
-.stages .stage .square .inner .details .text-tip .closer {
+.stages .stg .square .inner .details .text-tip .closer {
     position: absolute;
     top: 30px;
     right: 30px;
+}
+
+.stages .stg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -webkit-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+    text-align: center;
 }
 
 .closer {
@@ -467,3 +478,10 @@ label {
     position: relative;
     cursor: pointer;
 }
+
+.stages .stg .square .inner .images-wrapper:hover {
+    transform: scale(1.05) !important;
+    -webkit-transform: scale(1.05) !important;
+}
+
+.stages .stg .square .inner .details .wpp-info-mat:hover { color: #2ecc71; }
