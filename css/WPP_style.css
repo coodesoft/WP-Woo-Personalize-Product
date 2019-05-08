@@ -32,7 +32,7 @@
     vertical-align: middle;
     background: #ef0d33;
     border-radius: 16px;
-    color: #777;
+    color: #fff;
     font-size: 13px;
     width: 70px;
     text-align: center;
@@ -43,6 +43,7 @@
     visibility: hidden;
     -webkit-transition: all 0.26s ease-out;
     transition: all 0.26s ease-out;
+    font-weight: bold;
 }
 
 .WPP_container .WPP-inner-wrapper .deal-headline{
@@ -137,7 +138,7 @@
     text-align: center;
     line-height: 28px;
     vertical-align: middle;
-    font-size: 1.6em;
+    font-size: 1em;
     margin: auto;
     color: #777;
 }
@@ -623,3 +624,5 @@ label {
       width: 90px; height: 90px; margin-left: -45px; margin-top: -45px; border: 2px solid #333;
   }
 }
+
+.active .circle{ color:#fff !important; }

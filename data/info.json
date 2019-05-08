@@ -1,0 +1,48 @@
+{
+  "materiales":[
+    {
+      "nombre":"",
+      "descripcion":"",
+      "img_url":"",
+      "abreviacion":"",
+
+      "formas":[
+        {
+          "descripcion":"",
+          "nombre":"",
+          "abreviacion":"",
+
+          "tamanos":[
+            {
+              "descripcion":"",
+              "precio":"",
+              "img_ej_url":""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "nombre":"",
+      "descripcion":"",
+      "img_url":"",
+      "abreviacion":"",
+
+      "formas":[
+        {
+          "descripcion":"",
+          "nombre":"",
+          "abreviacion":"",
+
+          "tamanos":[
+            {
+              "descripcion":"",
+              "precio":"",
+              "img_ej_url":""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

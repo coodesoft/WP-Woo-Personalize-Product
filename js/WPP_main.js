@@ -15,14 +15,26 @@ class CoodeWWPPlugin{
     this.form_btns     = document.getElementsByClassName('wpp-form-btn');
     this.size_btns     = document.getElementsByClassName('wpp-size-btn');
     this.stage_hl_btns = document.getElementsByClassName('stage-headline');
+    this.upload_img_bt = document.getElementById('upload-photo');
+    this.take_img_bt   = document.getElementById('go-take-photo');
 
     this.pedido = {'material':null, 'forma':null, 'imagen':null};
 
     this.actual_step   = 0;
     this.anterior_step = 0;
 
-    this.event_bind();
-    this.next_step();
+    this.load_data();
+  }
+
+  load_data(){
+    let req = new XMLHttpRequest();
+    req.open("GET", "../../wp-content/plugins/WP-Woo-Personalize-Product/data/info.json", true);
+    req.addEventListener("load", ()=> {
+        console.log(req.responseText);
+        this.event_bind();
+        this.next_step();
+    });
+    req.send(null);
   }
 
   next_step(){ this.go_to_step(Number(this.actual_step)+1); }
@@ -101,6 +113,10 @@ class CoodeWWPPlugin{
 
   setClass(el,cl){
     for(let c=0;c<el.length;c++){ el[c].classList = cl; }
+  }
+
+  html_materials(){
+
   }
 
 }
