@@ -4,7 +4,6 @@
     height: calc( 100% - 80px );
     right: 0;
     width: 100%;
-    background-color: rgba(40,40,40,0.7);
 }
 
 .WPP_container .WPP-inner-wrapper{
@@ -20,7 +19,7 @@
 .WPP_container .WPP-inner-wrapper .headline{
     position: relative;
     text-align: center;
-    height: 38px;
+    height: 70px;
 }
 
 .WPP_container .WPP-inner-wrapper .headline h2 { font-size: 2.8em; }
@@ -83,7 +82,7 @@
     position: absolute;
     top: 14px;
     height: 2px;
-    background: white;
+    background: black;
     width: 170px;
 }
 
@@ -485,3 +484,5 @@ label {
 }
 
 .stages .stg .square .inner .details .wpp-info-mat:hover { color: #2ecc71; }
+
+.stages { position: relative;}

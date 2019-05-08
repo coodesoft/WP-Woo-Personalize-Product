@@ -70,8 +70,8 @@ function coode_WPP_short_code_tour() {
         <div class="stages" id="stages" data-position="1">
             <div class="stg down" id="stage-1">
                 <div class="square">
-                    <div class="inner mat-btn s-kind" data-kind="osb" data-kind-name="OSB" data-id="13">
-                        <div class="images-wrapper">
+                    <div class="inner">
+                        <div class="images-wrapper mat-btn" data-kind="osb" data-kind-name="OSB" data-id="13">
                             <div class="image bg" style="background: url(https://instablock.me/wp-content/uploads/2017/02/osb-e1498717936720.jpg)"></div>
                             <div class="image bg back" style="background: url(https://instablock.me/wp-content/uploads/2017/01/insta-4-2.jpg)"></div>
                         </div>
@@ -103,8 +103,8 @@ function coode_WPP_short_code_tour() {
                 </div>
 
                 <div class="square">
-                    <div class="inner mat-btn s-kind" data-kind="wood" data-kind-name="Wood" data-id="11">
-                        <div class="images-wrapper">
+                    <div class="inner">
+                        <div class="images-wrapper mat-btn" data-kind="wood" data-kind-name="Wood" data-id="11">
                             <div class="image bg" style="background: url(https://instablock.me/wp-content/uploads/2017/04/wood.jpg)"></div>
                             <div class="image bg back" style="background: url(https://instablock.me/wp-content/uploads/2017/03/wood-deal-3-back.jpg)"></div>
                         </div>
