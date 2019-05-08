@@ -1,9 +1,7 @@
 .WPP_container{
-    position: absolute;
-    top: 40px;
-    height: calc( 100% - 80px );
-    right: 0;
-    width: 100%;
+  position: relative;
+  top: 0px;
+  height: 410px;
 }
 
 .WPP_container .WPP-inner-wrapper{
