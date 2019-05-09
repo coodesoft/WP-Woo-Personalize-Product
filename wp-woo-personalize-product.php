@@ -17,22 +17,15 @@ function coode_WPP_short_code_tour() {
 
         <div class="headline">
             <h2>
-                <span id="helper-headline-text">
-                    Diseña tu producto
-                </span>
-                <div class="back-button" id="helper-back-button">
-                    <i class="fa fa-chevron-left"></i>
-                    Volver
-                </div>
+                <span id="helper-headline-text"> Diseña tu producto </span>
+
+                <div class="back-button" id="helper-back-button">  <i class="fa fa-chevron-left"></i>  Volver </div>
             </h2>
         </div>
 
         <div class="deal-headline" id="deal-headline">
             <div class="inner">
-                <span id="deal-headline-text">
-                    <span id="deal-headline-text-a"></span>
-                    <span id="deal-headline-text-b"></span>
-                </span>
+                <span id="deal-headline-text"> <span id="deal-headline-text-a"></span> <span id="deal-headline-text-b"></span>  </span>
             </div>
         </div>
 
@@ -41,142 +34,34 @@ function coode_WPP_short_code_tour() {
             <div class="line second" id="stage-line-2"><div class="inner-line"></div></div>
             <div class="line third" id="stage-line-3"><div class="inner-line"></div></div>
             <div class="line fourth" id="stage-line-4"><div class="inner-line"></div></div>
+
             <div class="stage-headline" id="stage-headline-1" data-target="1">
-                <div class="circle">1</div>
-                <h5>Material</h5>
-                <div class="indication" id="indication-kind">OSB</div>
+                <div class="circle">1</div><h5>Material</h5><div class="indication" id="indication-kind">OSB</div>
             </div>
+
             <div class="stage-headline" id="stage-headline-2" data-target="2">
-                <div class="circle">2</div>
-                <h5>Forma</h5>
-                <div class="indication" id="indication-shape">Rectangle</div>
+                <div class="circle">2</div><h5>Forma</h5><div class="indication" id="indication-shape">Rectangle</div>
             </div>
+
             <div class="stage-headline" id="stage-headline-3" data-target="3">
-                <div class="circle">3</div>
-                <h5>Tamaño</h5>
-                <div class="indication" id="indication-size">20/20 cm</div>
+                <div class="circle">3</div><h5>Tamaño</h5><div class="indication" id="indication-size">20/20 cm</div>
             </div>
+
             <div class="stage-headline" id="stage-headline-4">
-                <div class="circle">4</div>
-                <h5>Imagen</h5>
+                <div class="circle">4</div><h5>Imagen</h5>
             </div>
+
             <div class="stage-headline" id="stage-headline-5">
-                <div class="circle">5</div>
-                <h5>Añadir al carrito</h5>
+                <div class="circle">5</div><h5>Añadir al carrito</h5>
             </div>
+
             <div class="clear"></div>
         </div>
 
         <div class="stages" id="stages" data-position="1">
-            <div class="stg down" id="stage-1">
-                <div class="square">
-                    <div class="inner">
-                        <div class="images-wrapper mat-btn" data-kind="osb" data-kind-name="OSB" data-id="13">
-                            <div class="image bg" style="background: url(https://instablock.me/wp-content/uploads/2017/02/osb-e1498717936720.jpg)"></div>
-                            <div class="image bg back" style="background: url(https://instablock.me/wp-content/uploads/2017/01/insta-4-2.jpg)"></div>
-                        </div>
-                        <div class="details m-t-20">
-                            <h5>OSB</h5>
-                            <div class="wpp-info-mat">
-                                <i class="fa fa-info-circle"></i>Sobre el material
-                            </div>
-                            <div class="text-tip">
-                                <div class="inner-w">
-                                    <ul>
-                                        <li>The OSB Block is industrially processed, durable and strong, made of wood chips and resin.&nbsp; Each piece is different in shading and in the shape of the wood chips</li>
-                                        <li>The wood’s natural markings and holes may be visible through the photo</li>
-                                        <li>The colors of the photo may be affected by the wood’s pigments</li>
-                                        <li>it is not recommended to add a handwritten note on the photo.&nbsp; OSB has a grainy texture that can distort images with fine details</li>
-                                        <li>Suitable for sharp, clear images only – images may be sharpened and highlighted before printing</li>
-                                        <li>Our recommendation when printing on OSB Instablocks is to use an image with a large surface area, without small or fine details</li>
-                                        <li>A photo that looks good to you, will look beautiful on your Instablock</li>
-                                        <li>Frames around images are not suitable for Instablock and will be removed</li>
-                                        <li>You can upload images with text.&nbsp; The text should be centered and kept away from the image edges</li>
-                                        <li>Our recommendation: Add a personalized handwritten dedication on the back of the packaging</li>
-                                        <li>Unfortunately we are unable to print collage photos on this material</li>
-                                    </ul>
-                                    <div class="closer"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="stg down" id="stage-1"> </div>
 
-                <div class="square">
-                    <div class="inner">
-                        <div class="images-wrapper mat-btn" data-kind="wood" data-kind-name="Wood" data-id="11">
-                            <div class="image bg" style="background: url(https://instablock.me/wp-content/uploads/2017/04/wood.jpg)"></div>
-                            <div class="image bg back" style="background: url(https://instablock.me/wp-content/uploads/2017/03/wood-deal-3-back.jpg)"></div>
-                        </div>
-                        <div class="details m-t-20">
-                            <h5>
-                                Wood                    </h5>
-                            <div class="wpp-info-mat">
-                                <i class="fa fa-info-circle"></i>
-                                Sobre el material
-                            </div>
-                            <div class="text-tip">
-                                <div class="inner-w">
-                                    <ul>
-                                        <li>Print on natural solid pine, where each photo is unique with its own shade of color and shapes of wood grain</li>
-                                        <li>The transparency of the wood through the image depends on the image and its colors.&nbsp; Wood grain may be visible on the image</li>
-                                        <li>The colors of the image may change due to the wood pigmentation</li>
-                                        <li>The block of wood may contain cracks, wood knots, depressions and holes. These are part of the beauty of solid wood</li>
-                                        <li>A photo that looks good to you, will look beautiful on your Instablock</li>
-                                        <li>Frames around images are not suitable for Instablock and will be removed</li>
-                                        <li>You can upload images with text.&nbsp; The text should be centered and kept away from the image edges</li>
-                                        <li>Our recommendation: Add a personalized handwritten dedication on the back of the packaging</li>
-                                        <li>You may upload a photo collage.&nbsp; Keep important details away from the edges</li>
-                                    </ul>
-                                    <div class="closer"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="clear"></div>
-            </div>
-
-            <div class="stg down" id="stage-2">
-              <div id="stage-2-inner">
-
-                  <div class="square">
-                      <div class="inner s-shape" data-shape="circle" data-shape-name="Circle" data-id="17">
-                          <div class="images-wrapper">
-                            <div class="form-circle wpp-form-btn"></div>
-                          </div>
-                          <div class="details m-t-20">
-                              <h5>Circulo</h5>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="square">
-                      <div class="inner s-shape" data-shape="rectangle" data-shape-name="Rectangle" data-id="37">
-                          <div class="images-wrapper">
-                              <div class="form-rectangle wpp-form-btn"></div>
-                                          </div>
-                          <div class="details m-t-20">
-                              <h5>Rectángulo</h5>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="square">
-                      <div class="inner s-shape" data-shape="square" data-shape-name="Square" data-id="36">
-                          <div class="images-wrapper">
-                              <div class="form-square wpp-form-btn"></div>
-                                          </div>
-                          <div class="details m-t-20">
-                              <h5>Cuadrado</h5>
-                          </div>
-                      </div>
-                  </div>
-
-                </div>
-                <div class="clear"></div>
-            </div>
+            <div class="stg down" id="stage-2"> </div>
 
             <div class="stg down" id="stage-3">
                 <div id="stage-3-inner">

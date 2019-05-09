@@ -20,7 +20,7 @@
     height: 70px;
 }
 
-.WPP_container .WPP-inner-wrapper .headline h2 { font-size: 2.8em; }
+.WPP_container .WPP-inner-wrapper .headline h2 { font-size: 1.8em !important; }
 
 .WPP_container .WPP-inner-wrapper .headline .back-button {
     position: absolute;
@@ -145,7 +145,7 @@
 
 .stage-headline h5 {
     margin-top: 10px;
-    font-size: 15px;
+    font-size: 15px!important;
 }
 
 .stage-headline .indication {
