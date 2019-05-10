@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 class CoodeWWPPlugin{
   constructor(){
     this.data_products = {};
-    this.pref_url      = '../wp-content/plugins/WP-Woo-Personalize-Product';
+    this.pref_url      = WPP_URL;
 
     this.materials_cont = document.getElementById('stage-1');
     this.formas_cont    = document.getElementById('stage-2');
@@ -46,7 +46,7 @@ class CoodeWWPPlugin{
 
   load_data(){
     let req = new XMLHttpRequest();
-    req.open("GET", this.pref_url+"/data/info.json", true);
+    req.open("GET", this.pref_url+"/info.json", true);
     req.addEventListener("load", ()=> {
         this.data_products = JSON.parse(req.responseText);
         this.html_materials();
@@ -167,8 +167,8 @@ class CoodeWWPPlugin{
       content += '<div class="square">'+
         '  <div class="inner">'+
         '      <div class="images-wrapper mat-btn" data-kind="'+mat.abreviacion+'" data-name="'+mat.abreviacion+'" data-id="'+mat.id+'">'+
-              '    <div class="image bg" style="background: url('+mat.img_url+')"></div>'+
-              '    <div class="image bg back" style="background: url('+mat.imj_ej_url+')"></div>'+
+              '    <div class="image bg" style="background: url('+WPP_URL+mat.img_url+')"></div>'+
+              '    <div class="image bg back" style="background: url('+WPP_URL+mat.imj_ej_url+')"></div>'+
               '</div>'+
               '<div class="details m-t-20">'+
               '    <h5>'+mat.abreviacion+'</h5>'+
@@ -191,8 +191,8 @@ class CoodeWWPPlugin{
       content += '<div class="square" id="forma-'+mat.id+'">'+
         '  <div class="inner">'+
         '      <div class="images-wrapper wpp-form-btn" data-kind="'+mat.abreviacion+'" data-kind-name="'+mat.abreviacion+'" data-id="'+mat.id+'" data-name="'+mat.nombre+'">'+
-              '    <div class="image bg" style="background: url('+mat.img_url+')"></div>'+
-              '    <div class="image bg back" style="background: url('+mat.imj_ej_url+')"></div>'+
+              '    <div class="image bg" style="background: url('+WPP_URL+mat.img_url+')"></div>'+
+              '    <div class="image bg back" style="background: url('+WPP_URL+mat.imj_ej_url+')"></div>'+
               '</div>'+
               '<div class="details m-t-20">'+
               '    <h5>'+mat.abreviacion+'</h5>'+

@@ -142,6 +142,9 @@ function coode_WPP_short_code_tour() {
 
     </div>
 </div>
+<script>
+  var WPP_URL = "'.plugins_url('data', __FILE__).'";
+</script>
 ';
 }
 
@@ -160,7 +163,9 @@ function coode_WPP_enqueue_scripts() {
   wp_enqueue_style( 'load-fa', 'https://use.fontawesome.com/releases/v5.3.1/css/all.css' );
 
   wp_register_script('coode_WPP_main', plugins_url('js/WPP_main.js', __FILE__));
+  wp_register_script('coode_WPP_jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js');
   wp_enqueue_script('coode_WPP_main');
+  wp_enqueue_script('coode_WPP_jquery');
 }
 add_action('wp_enqueue_scripts', 'coode_WPP_enqueue_scripts');
 

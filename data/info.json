@@ -3,8 +3,8 @@
     {
       "nombre":"OSB",
       "descripcion":"Madera OSB",
-      "img_url":"../wp-content/plugins/WP-Woo-Personalize-Product/data/materiales/OSB.jpg",
-      "imj_ej_url":"../wp-content/plugins/WP-Woo-Personalize-Product/data/materiales/OSB.jpg",
+      "img_url":"/materiales/OSB.jpg",
+      "imj_ej_url":"/materiales/OSB.jpg",
       "abreviacion":"OSB",
       "id":1,
       "formas":[{"id_forma":"1"}, {"id_forma":"3"}, {"id_forma":"6"}, {"id_forma":"2"}, {"id_forma":"4"}, {"id_forma":"5"}]
@@ -12,8 +12,8 @@
     {
       "nombre":"Pino",
       "descripcion":"Madera de Pino",
-      "img_url":"../wp-content/plugins/WP-Woo-Personalize-Product/data/materiales/pino.jpg",
-      "imj_ej_url":"../wp-content/plugins/WP-Woo-Personalize-Product/data/materiales/pino.jpg",
+      "img_url":"/materiales/pino.jpg",
+      "imj_ej_url":"/materiales/pino.jpg",
       "abreviacion":"Pino",
       "id":2,
 
@@ -25,43 +25,43 @@
     {
       "nombre":"Círculo", "abreviacion":"Circulo",
       "descripcion":"",
-      "img_url":"../wp-content/plugins/WP-Woo-Personalize-Product/data/formas/circulo18.svg",
+      "img_url":"/formas/circulo18.svg",
       "id":"1"
     },
     {
       "nombre":"Corazón", "abreviacion":"Corazón",
       "descripcion":"",
-      "img_url":"../wp-content/plugins/WP-Woo-Personalize-Product/data/formas/corazon18.svg",
+      "img_url":"/formas/corazon18.svg",
       "id":"2"
     },
     {
       "nombre":"Cuadrado", "abreviacion":"Cuadrado",
       "descripcion":"",
-      "img_url":"../wp-content/plugins/WP-Woo-Personalize-Product/data/formas/cuadrado9x9.svg",
+      "img_url":"/formas/cuadrado9x9.svg",
       "id":"3"
     },
     {
       "nombre":"Hexagono", "abreviacion":"Hexagono",
       "descripcion":"",
-      "img_url":"../wp-content/plugins/WP-Woo-Personalize-Product/data/formas/hexagono.svg",
+      "img_url":"/formas/hexagono.svg",
       "id":"4"
     },
     {
       "nombre":"Puzzle", "abreviacion":"Puzzle",
       "descripcion":"",
-      "img_url":"../wp-content/plugins/WP-Woo-Personalize-Product/data/formas/puzzleModulos9x9.svg",
+      "img_url":"/formas/puzzleModulos9x9.svg",
       "id":"5"
     },
     {
       "nombre":"Rectangulo", "abreviacion":"Rectangulo",
       "descripcion":"",
-      "img_url":"../wp-content/plugins/WP-Woo-Personalize-Product/data/formas/rectangulo14x21.svg",
+      "img_url":"/formas/rectangulo14x21.svg",
       "id":"6"
     },
     {
       "nombre":"Triptico", "abreviacion":"Triptico",
       "descripcion":"",
-      "img_url":"../wp-content/plugins/WP-Woo-Personalize-Product/data/formas/triptico9x18.svg",
+      "img_url":"/formas/triptico9x18.svg",
       "id":"7"
     }
   ],
