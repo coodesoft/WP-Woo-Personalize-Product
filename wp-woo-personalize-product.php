@@ -79,8 +79,9 @@ function coode_WPP_short_code_tour() {
                       </div>-->
                     </div>
                 </div>
-                <div class="st5-edit-2">
-                </div>
+
+                  <canvas id="canvas" width="200px" height="200px"></canvas>
+              
             </div>
 
             <div class="stg down" id="stage-5">

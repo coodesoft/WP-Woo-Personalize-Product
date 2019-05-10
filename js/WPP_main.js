@@ -8,11 +8,14 @@ class CoodeWWPPlugin{
     this.data_products = {};
     this.pref_url      = WPP_URL;
 
-    this.upload_img_bt  = $('#upload-photo');
     this.take_img_bt    = $('#go-take-photo');
+    this.canvas         = document.getElementById('canvas');
+    this.context        = this.canvas.getContext( '2d' );
+    this.canvas_h       = 200;
+    this.canvas_w       = 200;
     this.stage_DOM_obj  = [];
 
-    this.pedido = {'material':null,'material_n':'', 'forma':null, 'forma_n':'', 'tamanio':null, 'tamanio_n':'', 'imagen':null};
+    this.pedido = {'material':null,'material_n':'', 'material_img_url':'', 'forma':null, 'forma_n':'','forma_img_url':'', 'tamanio':null, 'tamanio_n':'', 'imagen':null};
 
     this.actual_step   = 0;
     this.anterior_step = 0;
@@ -84,6 +87,7 @@ class CoodeWWPPlugin{
     $('.mat-btn').click( function() {
         obj.pedido.material   = $(this).attr('data-id');
         obj.pedido.material_n = $(this).attr('data-name');
+        obj.pedido.material_img_url = $(this).attr('data-img');
         $('#indication-kind').html(obj.pedido.material_n);
         $('#indication-kind').css('visibility','visible');
         $('#indication-kind').css('opacity','1');
@@ -98,6 +102,7 @@ class CoodeWWPPlugin{
     $('.wpp-form-btn').click( function(){
         obj.pedido.forma   = $(this).attr('data-id');
         obj.pedido.forma_n = $(this).attr('data-name');
+        obj.pedido.forma_img_url = $(this).attr('data-img');
         $('#indication-shape').html(obj.pedido.forma_n);
         $('#indication-shape').css('visibility','visible');
         $('#indication-shape').css('opacity','1');
@@ -111,6 +116,16 @@ class CoodeWWPPlugin{
         $('#indication-size').html(obj.pedido.tamanio_n);
         $('#indication-size').css('visibility','visible');
         $('#indication-size').css('opacity','1');
+        let imageObj = new Image();
+        imageObj.src = obj.pedido.material_img_url;
+        imageObj.onload = function () {
+          obj.context.drawImage( imageObj, 0, 0 ,obj.canvas_w,obj.canvas_h);
+        }
+        let imageObj2 = new Image();
+        imageObj2.src = obj.pedido.forma_img_url;
+        imageObj2.onload = function () {
+          obj.context.drawImage( imageObj2, 10, 10);
+        }
         obj.go_to_step(4);
     });
 
@@ -118,6 +133,11 @@ class CoodeWWPPlugin{
     $('.stage-headline').click( function() {
         let d = $(this).attr('data-target');
         if(d<obj.actual_step){ obj.go_to_step(d); }
+    });
+
+    //Se sube la Imagen
+    $('#upload-photo').click(function(){
+
     });
   }
 
@@ -131,7 +151,7 @@ class CoodeWWPPlugin{
       let mat = this.data_products.materiales[c];
       content += '<div class="square">'+
         '  <div class="inner">'+
-        '      <div class="images-wrapper mat-btn" data-kind="'+mat.abreviacion+'" data-name="'+mat.abreviacion+'" data-id="'+mat.id+'">'+
+        '      <div class="images-wrapper mat-btn" data-img="'+WPP_URL+mat.img_url+'" data-kind="'+mat.abreviacion+'" data-name="'+mat.abreviacion+'" data-id="'+mat.id+'">'+
               '    <div class="image bg" style="background: url('+WPP_URL+mat.img_url+')"></div>'+
               '    <div class="image bg back" style="background: url('+WPP_URL+mat.imj_ej_url+')"></div>'+
               '</div>'+
@@ -155,7 +175,7 @@ class CoodeWWPPlugin{
       let mat = this.data_products.formas[c];
       content += '<div class="square" id="forma-'+mat.id+'">'+
         '  <div class="inner">'+
-        '      <div class="images-wrapper wpp-form-btn" data-kind="'+mat.abreviacion+'" data-kind-name="'+mat.abreviacion+'" data-id="'+mat.id+'" data-name="'+mat.nombre+'">'+
+        '      <div class="images-wrapper wpp-form-btn" data-kind="'+mat.abreviacion+'" data-img="'+WPP_URL+mat.img_url+'" data-kind-name="'+mat.abreviacion+'" data-id="'+mat.id+'" data-name="'+mat.nombre+'">'+
               '    <div class="image bg" style="background: url('+WPP_URL+mat.img_url+')"></div>'+
               '    <div class="image bg back" style="background: url('+WPP_URL+mat.imj_ej_url+')"></div>'+
               '</div>'+
