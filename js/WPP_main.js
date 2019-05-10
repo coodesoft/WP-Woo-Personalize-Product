@@ -6,10 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
 class CoodeWWPPlugin{
   constructor(){
     this.data_products = {};
-    this.pref_url      = '../../wp-content/plugins/WP-Woo-Personalize-Product';
+    this.pref_url      = '../wp-content/plugins/WP-Woo-Personalize-Product';
 
     this.materials_cont = document.getElementById('stage-1');
     this.formas_cont    = document.getElementById('stage-2');
+    this.tamanios_cont  = document.getElementById('stage-3');
     this.upload_img_bt  = document.getElementById('upload-photo');
     this.take_img_bt    = document.getElementById('go-take-photo');
     this.info_mat       = [];
@@ -23,7 +24,7 @@ class CoodeWWPPlugin{
 
     this.materials_cont = document.getElementById('stage-1');
 
-    this.pedido = {'material':null,'maeterial_n':'', 'forma':null, 'forma_n':'', 'imagen':null};
+    this.pedido = {'material':null,'material_n':'', 'forma':null, 'forma_n':'', 'tamanio':null, 'tamanio_n':'', 'imagen':null};
 
     this.actual_step   = 0;
     this.anterior_step = 0;
@@ -50,6 +51,7 @@ class CoodeWWPPlugin{
         this.data_products = JSON.parse(req.responseText);
         this.html_materials();
         this.html_formas();
+        this.html_tamanios();
         this.reference_html();
         this.next_step();
     });
@@ -90,7 +92,7 @@ class CoodeWWPPlugin{
   event_bind(){
     //se recorren los botones para mostrar el texto de descripcion del material
     for(let c=0;c<this.info_mat.length;c++){
-      //this.info_mat[c].removeEventListener("click",()=>{});
+
       this.info_mat[c].addEventListener("click", (e)=>{
         this.reset_info_mat();
         let text_tip = e.explicitOriginalTarget.parentElement.parentElement.getElementsByClassName('text-tip');
@@ -100,15 +102,16 @@ class CoodeWWPPlugin{
 
     //se recorre los modal de información del Material
     for(let c=0;c<this.info_mat_text.length;c++){
-      //this.info_mat_text[c].removeEventListener("click",()=>{});
+
       this.info_mat_text[c].addEventListener("click", (e)=>{ this.reset_info_mat();  });
     }
 
     //se recorren los selectores de materiales
     for(let c=0;c<this.mat_DOM_obj.length;c++){
-      //this.mat_DOM_obj[c].removeEventListener("click",()=>{});
+
       this.mat_DOM_obj[c].addEventListener("click", (e)=>{
-        this.pedido.material = e.target.offsetParent.getAttribute('data-id');
+        this.pedido.material   = e.target.offsetParent.getAttribute('data-id');
+        this.pedido.material_n = e.target.offsetParent.getAttribute('data-name');
         this.disable_formas();
         this.go_to_step(2);
       });
@@ -116,28 +119,34 @@ class CoodeWWPPlugin{
 
     //se recorren los botones para Volver
     for(let c=0;c<this.back_btns.length;c++){
-      //this.back_btns[c].removeEventListener("click",()=>{});
+
       this.back_btns[c].addEventListener("click", (e)=>{ this.back_step(); });
     }
 
     //se recorren los botones de formas
     for(let c=0;c<this.form_btns.length;c++){
-      //this.form_btns[c].removeEventListener("click",()=>{});
-      this.form_btns[c].addEventListener("click", (e)=>{
 
+      this.form_btns[c].addEventListener("click", (e)=>{
+        this.pedido.forma = e.target.offsetParent.getAttribute('data-id');
+        this.pedido.forma_n = e.target.offsetParent.getAttribute('data-name');
         this.go_to_step(3);
       });
     }
 
     //se recorren los botones de tamaños
     for(let c=0;c<this.size_btns.length;c++){
-      //this.size_btns[c].removeEventListener("click",()=>{});
-      this.size_btns[c].addEventListener("click", (e)=>{ this.next_step(); });
+
+      this.size_btns[c].addEventListener("click", (e)=>{
+        this.pedido.tamanio   = e.target.offsetParent.getAttribute('data-id');
+        this.pedido.tamanio_n = e.target.offsetParent.getAttribute('data-name');
+        console.log(this.pedido);
+        this.go_to_step(4);
+      });
     }
 
     //se recorren los botones del checkpoint
     for(let c=0;c<this.stage_hl_btns.length;c++){
-      //this.stage_hl_btns[c].removeEventListener("click",()=>{});
+
       this.stage_hl_btns[c].addEventListener("click", (e)=>{
         let d = e.target.offsetParent.getAttribute('data-target');
         if(d<this.actual_step){ this.go_to_step(d); }
@@ -157,7 +166,7 @@ class CoodeWWPPlugin{
       let mat = this.data_products.materiales[c];
       content += '<div class="square">'+
         '  <div class="inner">'+
-        '      <div class="images-wrapper mat-btn" data-kind="'+mat.abreviacion+'" data-kind-name="'+mat.abreviacion+'" data-id="'+mat.id+'">'+
+        '      <div class="images-wrapper mat-btn" data-kind="'+mat.abreviacion+'" data-name="'+mat.abreviacion+'" data-id="'+mat.id+'">'+
               '    <div class="image bg" style="background: url('+mat.img_url+')"></div>'+
               '    <div class="image bg back" style="background: url('+mat.imj_ej_url+')"></div>'+
               '</div>'+
@@ -181,7 +190,7 @@ class CoodeWWPPlugin{
       let mat = this.data_products.formas[c];
       content += '<div class="square" id="forma-'+mat.id+'">'+
         '  <div class="inner">'+
-        '      <div class="images-wrapper wpp-form-btn s-shape" data-kind="'+mat.abreviacion+'" data-kind-name="'+mat.abreviacion+'" data-id="'+mat.id+'" data-shape="'+mat.nombre+'">'+
+        '      <div class="images-wrapper wpp-form-btn" data-kind="'+mat.abreviacion+'" data-kind-name="'+mat.abreviacion+'" data-id="'+mat.id+'" data-name="'+mat.nombre+'">'+
               '    <div class="image bg" style="background: url('+mat.img_url+')"></div>'+
               '    <div class="image bg back" style="background: url('+mat.imj_ej_url+')"></div>'+
               '</div>'+
@@ -193,6 +202,23 @@ class CoodeWWPPlugin{
     }
     content += '<div class="clear"></div>';
     this.formas_cont.innerHTML = content;
+  }
+
+  html_tamanios(){
+    let content = '';
+    for(let c=0; c<this.data_products.tamanos.length;c++){
+      let mat = this.data_products.tamanos[c];
+      content += '<div class="square"><div class="inner s-size" data-size="25-30">'+
+          '<div class="images-wrapper wpp-size-btn" data-id="'+mat.id+'" data-name="'+mat.nombre+'" data-price="'+mat.precio+'"><div class="form-rectangle" style="'+mat.style+'"></div>'+
+          '</div>'+
+          '<div class="details"><h5>'+mat.nombre+'</h5>'+
+            '  <h5 class="m-t-5">'+
+                '  Precio: <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>'+mat.precio+'</span></ins></h5>'+
+          '</div>'+
+      '</div></div>';
+    }
+    content += '<div class="clear"></div>';
+    this.tamanios_cont.innerHTML = content;
   }
 
   disable_formas(){
