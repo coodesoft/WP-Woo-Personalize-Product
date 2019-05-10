@@ -84,6 +84,9 @@ class CoodeWWPPlugin{
     $('.mat-btn').click( function() {
         obj.pedido.material   = $(this).attr('data-id');
         obj.pedido.material_n = $(this).attr('data-name');
+        $('#indication-kind').html(obj.pedido.material_n);
+        $('#indication-kind').css('visibility','visible');
+        $('#indication-kind').css('opacity','1');
         obj.disable_formas();
         obj.go_to_step(2);
     });
@@ -95,6 +98,9 @@ class CoodeWWPPlugin{
     $('.wpp-form-btn').click( function(){
         obj.pedido.forma   = $(this).attr('data-id');
         obj.pedido.forma_n = $(this).attr('data-name');
+        $('#indication-shape').html(obj.pedido.forma_n);
+        $('#indication-shape').css('visibility','visible');
+        $('#indication-shape').css('opacity','1');
         obj.go_to_step(3);
     });
 
@@ -102,6 +108,9 @@ class CoodeWWPPlugin{
     $('.wpp-size-btn').click( function(){
         obj.pedido.tamanio   = $(this).attr('data-id');
         obj.pedido.tamanio_n = $(this).attr('data-name');
+        $('#indication-size').html(obj.pedido.tamanio_n);
+        $('#indication-size').css('visibility','visible');
+        $('#indication-size').css('opacity','1');
         obj.go_to_step(4);
     });
 

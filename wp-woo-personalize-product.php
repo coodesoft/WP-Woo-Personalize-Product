@@ -36,15 +36,15 @@ function coode_WPP_short_code_tour() {
             <div class="line fourth" id="stage-line-4"><div class="inner-line"></div></div>
 
             <div class="stage-headline" id="stage-headline-1" data-target="1">
-                <div class="circle">1</div><h5>Material</h5><div class="indication" id="indication-kind">OSB</div>
+                <div class="circle">1</div><h5>Material</h5><h5 class="indication" id="indication-kind">OSB</h5>
             </div>
 
             <div class="stage-headline" id="stage-headline-2" data-target="2">
-                <div class="circle">2</div><h5>Forma</h5><div class="indication" id="indication-shape">Rectangle</div>
+                <div class="circle">2</div><h5>Forma</h5><h5 class="indication" id="indication-shape">Rectangle</h5>
             </div>
 
             <div class="stage-headline" id="stage-headline-3" data-target="3">
-                <div class="circle">3</div><h5>Tamaño</h5><div class="indication" id="indication-size">20/20 cm</div>
+                <div class="circle">3</div><h5>Tamaño</h5><h5 class="indication" id="indication-size">20/20 cm</h5>
             </div>
 
             <div class="stage-headline" id="stage-headline-4">
@@ -66,16 +66,20 @@ function coode_WPP_short_code_tour() {
             <div class="stg down" id="stage-3"></div>
 
             <div class="stg down" id="stage-4">
-                <h5 class="ta-c m-t-20" style="line-height: 1.2"> Great. This is where the fun starts. <br> Please choose an awesome image and upload it to the system. </h5>
-                <div class="icons m-t-40">
-                    <div class="icon" id="upload-photo">
-                        <i class="fa fa-upload" aria-hidden="true"></i>
-                        <p>Subir imagen</p>
+                <div class="st5-edit-1">
+                  <h5 class="ta-c m-t-20" style="line-height: 1.2"> Bien, ahora suba la imagen que quiere incluir en el producto. </h5>
+                  <div class="icons m-t-40">
+                      <div class="icon" id="upload-photo">
+                          <i class="fa fa-upload" aria-hidden="true"></i>
+                          <p>Subir imagen</p>
+                      </div>
+                    <!--  <div class="icon" id="go-take-photo">
+                          <i class="fa fa-camera" aria-hidden="true"></i>
+                          <p>Sacar foto</p>
+                      </div>-->
                     </div>
-                    <div class="icon" id="go-take-photo">
-                        <i class="fa fa-camera" aria-hidden="true"></i>
-                        <p>Sacar foto</p>
-                    </div>
+                </div>
+                <div class="st5-edit-2">
                 </div>
             </div>
 
