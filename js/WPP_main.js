@@ -8,21 +8,9 @@ class CoodeWWPPlugin{
     this.data_products = {};
     this.pref_url      = WPP_URL;
 
-    this.materials_cont = document.getElementById('stage-1');
-    this.formas_cont    = document.getElementById('stage-2');
-    this.tamanios_cont  = document.getElementById('stage-3');
-    this.upload_img_bt  = document.getElementById('upload-photo');
-    this.take_img_bt    = document.getElementById('go-take-photo');
-    this.info_mat       = [];
-    this.info_mat_text  = [];
-    this.mat_DOM_obj    = [];
+    this.upload_img_bt  = $('#upload-photo');
+    this.take_img_bt    = $('#go-take-photo');
     this.stage_DOM_obj  = [];
-    this.back_btns      = [];
-    this.form_btns      = [];
-    this.size_btns      = [];
-    this.stage_hl_btns  = [];
-
-    this.materials_cont = document.getElementById('stage-1');
 
     this.pedido = {'material':null,'material_n':'', 'forma':null, 'forma_n':'', 'tamanio':null, 'tamanio_n':'', 'imagen':null};
 
@@ -33,14 +21,7 @@ class CoodeWWPPlugin{
   }
 
   reference_html(){
-    this.info_mat       = document.getElementsByClassName('wpp-info-mat');
-    this.info_mat_text  = document.getElementsByClassName('text-tip');
-    this.mat_DOM_obj    = document.getElementsByClassName('mat-btn');
-    this.stage_DOM_obj  = document.getElementsByClassName('stg');
-    this.back_btns      = document.getElementsByClassName('back-button');
-    this.form_btns      = document.getElementsByClassName('wpp-form-btn');
-    this.size_btns      = document.getElementsByClassName('wpp-size-btn');
-    this.stage_hl_btns  = document.getElementsByClassName('stage-headline');
+    this.stage_DOM_obj  = $('.stg');
     this.event_bind();
   }
 
@@ -62,7 +43,6 @@ class CoodeWWPPlugin{
   back_step(){ this.go_to_step(Number(this.actual_step)-1); }
 
   go_to_step(i){
-    this.reference_html();
     this.anterior_step = this.actual_step;
     this.actual_step   = i;
 
@@ -70,11 +50,11 @@ class CoodeWWPPlugin{
     this.toggle_class_or('stage-headline-','active');
 
     if(this.actual_step > 1){
-      this.back_btns[0].style.opacity    = 1;
-      this.back_btns[0].style.visibility = 'visible';
+      $('.back-button').css('opacity', '1');
+      $('.back-button').css('visibility', 'visible');
     } else {
-      this.back_btns[0].style.opacity    = 0;
-      this.back_btns[0].style.visibility = 'hidden';
+      $('.back-button').css('opacity', '0');
+      $('.back-button').css('visibility', 'hidden');
     }
 
     switch(this.actual_step){
@@ -83,78 +63,54 @@ class CoodeWWPPlugin{
   }
 
   toggle_class_or(el,cl){
-    let o1 = document.getElementById(el+this.actual_step);
-    let o2 = document.getElementById(el+this.anterior_step);
-    o1.classList.toggle(cl);
-    if(o2) { o2.classList.toggle(cl); }
+    let o1 = $('#'+el+this.actual_step);
+    let o2 = $('#'+el+this.anterior_step);
+    o1.toggleClass(cl);
+    if(o2) { o2.toggleClass(cl); }
   }
 
   event_bind(){
+    let obj = this;
     //se recorren los botones para mostrar el texto de descripcion del material
-    for(let c=0;c<this.info_mat.length;c++){
-
-      this.info_mat[c].addEventListener("click", (e)=>{
-        this.reset_info_mat();
-        let text_tip = e.explicitOriginalTarget.parentElement.parentElement.getElementsByClassName('text-tip');
-        text_tip[0].classList.add('show');
-      });
-    }
+    $('.wpp-info-mat').click( function(){
+        $('.text-tip').removeClass('show');
+        $(this).parent().children('.text-tip').addClass('show');
+    });
 
     //se recorre los modal de información del Material
-    for(let c=0;c<this.info_mat_text.length;c++){
-
-      this.info_mat_text[c].addEventListener("click", (e)=>{ this.reset_info_mat();  });
-    }
+    $('.text-tip').click( function(){ $('.text-tip').removeClass('show'); });
 
     //se recorren los selectores de materiales
-    for(let c=0;c<this.mat_DOM_obj.length;c++){
-
-      this.mat_DOM_obj[c].addEventListener("click", (e)=>{
-        this.pedido.material   = e.target.offsetParent.getAttribute('data-id');
-        this.pedido.material_n = e.target.offsetParent.getAttribute('data-name');
-        this.disable_formas();
-        this.go_to_step(2);
-      });
-    }
+    $('.mat-btn').click( function() {
+        obj.pedido.material   = $(this).attr('data-id');
+        obj.pedido.material_n = $(this).attr('data-name');
+        obj.disable_formas();
+        obj.go_to_step(2);
+    });
 
     //se recorren los botones para Volver
-    for(let c=0;c<this.back_btns.length;c++){
-
-      this.back_btns[c].addEventListener("click", (e)=>{ this.back_step(); });
-    }
+    $('.back-button').click( (e)=>{ obj.back_step(); });
 
     //se recorren los botones de formas
-    for(let c=0;c<this.form_btns.length;c++){
-
-      this.form_btns[c].addEventListener("click", (e)=>{
-        this.pedido.forma = e.target.offsetParent.getAttribute('data-id');
-        this.pedido.forma_n = e.target.offsetParent.getAttribute('data-name');
-        this.go_to_step(3);
-      });
-    }
+    $('.wpp-form-btn').click( function(){
+        obj.pedido.forma   = $(this).attr('data-id');
+        obj.pedido.forma_n = $(this).attr('data-name');
+        obj.go_to_step(3);
+    });
 
     //se recorren los botones de tamaños
-    for(let c=0;c<this.size_btns.length;c++){
-
-      this.size_btns[c].addEventListener("click", (e)=>{
-        this.pedido.tamanio   = e.target.offsetParent.getAttribute('data-id');
-        this.pedido.tamanio_n = e.target.offsetParent.getAttribute('data-name');
-        console.log(this.pedido);
-        this.go_to_step(4);
-      });
-    }
+    $('.wpp-size-btn').click( function(){
+        obj.pedido.tamanio   = $(this).attr('data-id');
+        obj.pedido.tamanio_n = $(this).attr('data-name');
+        obj.go_to_step(4);
+    });
 
     //se recorren los botones del checkpoint
-    for(let c=0;c<this.stage_hl_btns.length;c++){
-
-      this.stage_hl_btns[c].addEventListener("click", (e)=>{
-        let d = e.target.offsetParent.getAttribute('data-target');
-        if(d<this.actual_step){ this.go_to_step(d); }
-      });
-    }
+    $('.stage-headline').click( function() {
+        let d = $(this).attr('data-target');
+        if(d<obj.actual_step){ obj.go_to_step(d); }
+    });
   }
-
-  reset_info_mat(){ this.setClass(this.info_mat_text,['text-tip']); }
 
   setClass(el,cl){
     for(let c=0;c<el.length;c++){ el[c].classList = cl; }
@@ -181,7 +137,7 @@ class CoodeWWPPlugin{
       '</div>';
     }
     content += '<div class="clear"></div>';
-    this.materials_cont.innerHTML = content;
+    $('#stage-1').html(content);
   }
 
   html_formas(){
@@ -201,7 +157,7 @@ class CoodeWWPPlugin{
       '</div>';
     }
     content += '<div class="clear"></div>';
-    this.formas_cont.innerHTML = content;
+    $('#stage-2').html(content);
   }
 
   html_tamanios(){
@@ -218,18 +174,18 @@ class CoodeWWPPlugin{
       '</div></div>';
     }
     content += '<div class="clear"></div>';
-    this.tamanios_cont.innerHTML = content;
+    $('#stage-3').html(content);
   }
 
   disable_formas(){
     let mat = this.find_mat_id(this.pedido.material);
     for (let c=0;c<this.data_products.formas.length;c++){
-      let e = document.getElementById('forma-'+this.data_products.formas[c].id);
-      e.style.display = 'none';
+      let e = $('#forma-'+this.data_products.formas[c].id);
+      e.css('display', 'none');
     }
     for (let c=0;c<mat.formas.length;c++){
-      let e = document.getElementById('forma-'+mat.formas[c].id_forma);
-      e.style.display = 'inline-block';
+      let e = $('#forma-'+mat.formas[c].id_forma);
+      e.css('display', 'inline-block');
     }
   }
 
