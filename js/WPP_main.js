@@ -60,6 +60,17 @@ class CoodeWWPPlugin{
       $('.back-button').css('visibility', 'hidden');
     }
 
+    let st = $(".stage-headline");
+    for(let c=0;c<st.length;c++){
+      if (c < this.actual_step-1){
+        $(st[c]).children('.indication').css('visibility','visible');
+        $(st[c]).children('.indication').css('opacity','1');
+      } else {
+        $(st[c]).children('.indication').css('visibility','hidden');
+        $(st[c]).children('.indication').css('opacity','0');
+      }
+    }
+
     switch(this.actual_step){
       case 1:  break;
     }
@@ -89,8 +100,6 @@ class CoodeWWPPlugin{
         obj.pedido.material_n = $(this).attr('data-name');
         obj.pedido.material_img_url = $(this).attr('data-img');
         $('#indication-kind').html(obj.pedido.material_n);
-        $('#indication-kind').css('visibility','visible');
-        $('#indication-kind').css('opacity','1');
         obj.disable_formas();
         obj.go_to_step(2);
     });
@@ -103,9 +112,9 @@ class CoodeWWPPlugin{
         obj.pedido.forma   = $(this).attr('data-id');
         obj.pedido.forma_n = $(this).attr('data-name');
         obj.pedido.forma_img_url = $(this).attr('data-img');
+        $('.img-size').attr('src',obj.pedido.forma_img_url);
         $('#indication-shape').html(obj.pedido.forma_n);
-        $('#indication-shape').css('visibility','visible');
-        $('#indication-shape').css('opacity','1');
+        obj.disable_tamanios();
         obj.go_to_step(3);
     });
 
@@ -114,8 +123,6 @@ class CoodeWWPPlugin{
         obj.pedido.tamanio   = $(this).attr('data-id');
         obj.pedido.tamanio_n = $(this).attr('data-name');
         $('#indication-size').html(obj.pedido.tamanio_n);
-        $('#indication-size').css('visibility','visible');
-        $('#indication-size').css('opacity','1');
         let imageObj = new Image();
         imageObj.src = obj.pedido.material_img_url;
         imageObj.onload = function () {
@@ -193,8 +200,9 @@ class CoodeWWPPlugin{
     let content = '';
     for(let c=0; c<this.data_products.tamanos.length;c++){
       let mat = this.data_products.tamanos[c];
-      content += '<div class="square"><div class="inner s-size" data-size="25-30">'+
-          '<div class="images-wrapper wpp-size-btn" data-id="'+mat.id+'" data-name="'+mat.nombre+'" data-price="'+mat.precio+'"><div class="form-rectangle" style="'+mat.style+'"></div>'+
+      content += '<div class="square" id="tama-'+mat.id+'"><div class="inner s-size" data-size="25-30">'+
+          '<div class="images-wrapper wpp-size-btn" data-id="'+mat.id+'" data-name="'+mat.nombre+'" data-price="'+mat.precio+'">'+
+              '<div class="form-rectangle" style="'+mat.style+'"><img class="img-responsive img-size"></div>'+
           '</div>'+
           '<div class="details"><h5>'+mat.nombre+'</h5>'+
             '  <h5 class="m-t-5">'+
@@ -207,6 +215,18 @@ class CoodeWWPPlugin{
   }
 
   disable_formas(){
+    let mat = this.find_mat_id(this.pedido.material);
+    for (let c=0;c<this.data_products.formas.length;c++){
+      let e = $('#forma-'+this.data_products.formas[c].id);
+      e.css('display', 'none');
+    }
+    for (let c=0;c<mat.formas.length;c++){
+      let e = $('#forma-'+mat.formas[c].id_forma);
+      e.css('display', 'inline-block');
+    }
+  }
+
+  disable_tamanios(){
     let mat = this.find_mat_id(this.pedido.material);
     for (let c=0;c<this.data_products.formas.length;c++){
       let e = $('#forma-'+this.data_products.formas[c].id);

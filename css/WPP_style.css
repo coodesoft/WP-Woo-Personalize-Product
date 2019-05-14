@@ -527,7 +527,6 @@ label {
     margin-left: -45px;
     top: 50%;
     margin-top: -65px;
-    border: 3px solid #333;
     -webkit-transition: all 0.26s ease-out;
     transition: all 0.26s ease-out;
 }
@@ -605,17 +604,8 @@ label {
   }
   .WPP_container{ top: 60px;  height: calc( 100% - 80px );}
 
-  .form-circle {
-      width: 90px;  height: 90px;
-      margin-left: -45px; margin-top: -45px; border: 2px solid #333;
-  }
-
   .form-rectangle {
       height: 90px; margin-top: -45px; width: 62px;  margin-left: -31px; border: 2px solid #333;
-  }
-
-  .form-square {
-      width: 90px; height: 90px; margin-left: -45px; margin-top: -45px; border: 2px solid #333;
   }
 }
 
