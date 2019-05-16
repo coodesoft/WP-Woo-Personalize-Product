@@ -228,12 +228,20 @@ class CoodeWWPPlugin{
 
   disable_tamanios(){
     let mat = this.find_mat_id(this.pedido.material);
-    for (let c=0;c<this.data_products.formas.length;c++){
-      let e = $('#forma-'+this.data_products.formas[c].id);
+    let tam = [];
+
+    for (let c=0;c<mat.formas.length;c++){
+      if(mat.formas[c].id_forma == this.pedido.forma){
+        tam = mat.formas[c].tamanos; break;
+      }
+    }
+    console.log(tam);
+    for (let c=0;c<this.data_products.tamanos.length;c++){
+      let e = $('#tama-'+this.data_products.tamanos[c].id);
       e.css('display', 'none');
     }
-    for (let c=0;c<mat.formas.length;c++){
-      let e = $('#forma-'+mat.formas[c].id_forma);
+    for (let c=0;c<tam.length;c++){
+      let e = $('#tama-'+tam[c]);
       e.css('display', 'inline-block');
     }
   }
