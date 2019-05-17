@@ -124,14 +124,16 @@ class CoodeWWPPlugin{
         obj.pedido.tamanio_n = $(this).attr('data-name');
         $('#indication-size').html(obj.pedido.tamanio_n);
         let imageObj = new Image();
+        let imageObj2 = new Image();
         imageObj.src = obj.pedido.material_img_url;
         imageObj.onload = function () {
           obj.context.drawImage( imageObj, 0, 0 ,obj.canvas_w,obj.canvas_h);
-        }
-        let imageObj2 = new Image();
-        imageObj2.src = obj.pedido.forma_img_url;
-        imageObj2.onload = function () {
-          obj.context.drawImage( imageObj2, 10, 10);
+
+          imageObj2.src = obj.pedido.forma_img_url;
+          imageObj2.onload = function () {
+            console.log(imageObj2);
+            obj.context.drawImage( imageObj2, 0, 0);
+          }
         }
         obj.go_to_step(4);
     });
@@ -235,7 +237,7 @@ class CoodeWWPPlugin{
         tam = mat.formas[c].tamanos; break;
       }
     }
-    console.log(tam);
+
     for (let c=0;c<this.data_products.tamanos.length;c++){
       let e = $('#tama-'+this.data_products.tamanos[c].id);
       e.css('display', 'none');

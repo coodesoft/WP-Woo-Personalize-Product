@@ -5,79 +5,60 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xml:space="preserve"
-   enable-background="new 0 0 200 200"
-   viewBox="0 0 200 200"
-   y="0px"
-   x="0px"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
    id="Capa_1"
-   version="1.1"><metadata
+   x="0px"
+   y="0px"
+   width="200"
+   height="200"
+   viewBox="0 0 200 200"
+   enable-background="new 0 0 200 200"
+   xml:space="preserve"
+   sodipodi:docname="corazon18.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="728"
+   inkscape:window-height="480"
+   id="namedview8"
+   showgrid="false"
+   inkscape:zoom="0.834386"
+   inkscape:cx="100"
+   inkscape:cy="100"
+   inkscape:window-x="0"
+   inkscape:window-y="0"
+   inkscape:window-maximized="0"
+   inkscape:current-layer="Capa_1" /><metadata
    id="metadata32"><rdf:RDF><cc:Work
        rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
          rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
    id="defs30" />
+
+
+
+
 <g
-   id="g4">
-	<path
-   id="path2"
-   d="M-172.4,9.5c53.8,0,97.5,43.7,97.5,97.5s-43.7,97.5-97.5,97.5s-97.5-43.7-97.5-97.5S-226.2,9.5-172.4,9.5    M-172.4,7c-55.2,0-100,44.8-100,100s44.8,100,100,100s100-44.8,100-100S-117.2,7-172.4,7L-172.4,7z"
-   fill="#1F1E21" />
-</g>
-<g
-   id="g8">
-	<path
-   id="path6"
-   d="M-95.6,226v153.5h-153.5V226H-95.6 M-93.1,223.5h-158.5V382h158.5V223.5L-93.1,223.5z"
-   fill="#1F1E21" />
-</g>
-<g
-   id="g12">
-	<path
-   id="path10"
-   d="M-363.4,6.8l48.6,84.1l-48.6,84.1h-97.1l-48.6-84.1l48.6-84.1H-363.4 M-362,4.3h-100l-50,86.6l50,86.6h100   l50-86.6L-362,4.3L-362,4.3z"
-   fill="#1F1E21" />
-</g>
-<g
-   id="g20">
-	<rect
-   id="rect14"
-   height="190"
-   width="65.8"
-   stroke-width="2.5"
-   stroke="#1F1E21"
-   fill="none"
-   y="227.3"
-   x="-534.8" />
-	<rect
-   id="rect16"
-   height="190"
-   width="65.8"
-   stroke-width="2.5"
-   stroke="#1F1E21"
-   fill="none"
-   y="227.3"
-   x="-469" />
-	<rect
-   id="rect18"
-   height="190"
-   width="65.8"
-   stroke-width="2.5"
-   stroke="#1F1E21"
-   fill="none"
-   y="227.3"
-   x="-403.2" />
-</g>
-<g
+   style="stroke:#000000;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;fill:none"
    id="g25">
 	<g
+   style="stroke:#000000;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;fill:none"
    id="Icons_18_">
 		<path
-   id="path22"
-   d="M172.9,23c-22.6-22.6-59.1-22.6-81.7,0    C76.5,37.7,71.5,58.4,76,77.3c-18.9-4.5-39.6,0.5-54.3,15.3c-22.6,22.6-22.5,59.1,0,81.7C34,186.5,50.4,192,66.5,190.9l115.7,0    c2,0,3.9-0.8,5.3-2.2s2.2-3.3,2.2-5.3l0-115.7C190.7,51.7,185.2,35.3,172.9,23z"
-   stroke-miterlimit="10"
-   stroke-width="2.5"
+   style="stroke:#000000;stroke-opacity:1;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;fill:none"
+   fill="none"
    stroke="#000000"
-   fill="none" />
+   stroke-width="2.5"
+   stroke-miterlimit="10"
+   d="M172.9,23c-22.6-22.6-59.1-22.6-81.7,0    C76.5,37.7,71.5,58.4,76,77.3c-18.9-4.5-39.6,0.5-54.3,15.3c-22.6,22.6-22.5,59.1,0,81.7C34,186.5,50.4,192,66.5,190.9l115.7,0    c2,0,3.9-0.8,5.3-2.2s2.2-3.3,2.2-5.3l0-115.7C190.7,51.7,185.2,35.3,172.9,23z"
+   id="path22" />
 	</g>
 </g>
 </svg>

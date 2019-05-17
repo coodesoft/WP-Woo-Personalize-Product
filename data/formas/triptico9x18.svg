@@ -1,20 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 200 200" enable-background="new 0 0 200 200" xml:space="preserve">
-<g>
-	<path fill="#1F1E21" d="M-172.4,9.5c53.8,0,97.5,43.7,97.5,97.5s-43.7,97.5-97.5,97.5s-97.5-43.7-97.5-97.5S-226.2,9.5-172.4,9.5
-		 M-172.4,7c-55.2,0-100,44.8-100,100s44.8,100,100,100s100-44.8,100-100S-117.2,7-172.4,7L-172.4,7z"/>
-</g>
-<g>
-	<path fill="#1F1E21" d="M-95.6,226v153.5h-153.5V226H-95.6 M-93.1,223.5h-158.5V382h158.5V223.5L-93.1,223.5z"/>
-</g>
-<g>
-	<path fill="#1F1E21" d="M-363.4,6.8l48.6,84.1l-48.6,84.1h-97.1l-48.6-84.1l48.6-84.1H-363.4 M-362,4.3h-100l-50,86.6l50,86.6h100
-		l50-86.6L-362,4.3L-362,4.3z"/>
-</g>
-<rect x="1.3" y="5" fill="none" stroke="#1F1E21" stroke-width="2.5" width="65.8" height="190"/>
-<rect x="67.1" y="5" fill="none" stroke="#1F1E21" stroke-width="2.5" width="65.8" height="190"/>
-<rect x="132.9" y="5" fill="none" stroke="#1F1E21" stroke-width="2.5" width="65.8" height="190"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+  width="200"
+  height="200"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xml:space="preserve"
+   enable-background="new 0 0 200 200"
+   viewBox="0 0 200 200"
+   y="0px"
+   x="0px"
+   id="Capa_1"
+   version="1.1"><metadata
+   id="metadata25"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+   id="defs23" />
+
+
+
+<rect
+   id="rect14"
+   height="190"
+   width="65.8"
+   stroke-width="2.5"
+   stroke="#1F1E21"
+   fill="none"
+   y="5"
+   x="1.3" />
+<rect
+   id="rect16"
+   height="190"
+   width="65.8"
+   stroke-width="2.5"
+   stroke="#1F1E21"
+   fill="none"
+   y="5"
+   x="67.1" />
+<rect
+   id="rect18"
+   height="190"
+   width="65.8"
+   stroke-width="2.5"
+   stroke="#1F1E21"
+   fill="none"
+   y="5"
+   x="132.9" />
 </svg>
