@@ -32,6 +32,11 @@ class CanvasImg{
   mouseOver(){
     return (this.canvas.mouse_x > this.x && this.canvas.mouse_x < this.x + this.w && this.canvas.mouse_y > this.y && this.canvas.mouse_y < this.y + this.h);
   }
+
+  mouseOverPointLU(){ return (this.canvas.mouse_x > this.x-5 && this.canvas.mouse_x < this.x+5 && this.canvas.mouse_y > this.y-5 && this.canvas.mouse_y < this.y+5);  }
+  mouseOverPointRU(){ return (this.canvas.mouse_x > this.x+this.w-5 && this.canvas.mouse_x < this.x+this.w+5 && this.canvas.mouse_y > this.y-5 && this.canvas.mouse_y < this.y+5);  }
+  mouseOverPointLD(){ return (this.canvas.mouse_x > this.x-5 && this.canvas.mouse_x < this.x+5 && this.canvas.mouse_y > this.y+this.h-5 && this.canvas.mouse_y < this.y+this.h+5);  }
+  mouseOverPointRD(){ return (this.canvas.mouse_x > this.x+this.w-5 && this.canvas.mouse_x < this.x+this.w+5 && this.canvas.mouse_y > this.y+this.h-5 && this.canvas.mouse_y < this.y+this.h+5) }
 }
 
 class CanvasManager{
@@ -56,10 +61,28 @@ class CanvasManager{
       obj.mouse_y = e.pageY - offset.top;
 
       if(obj.images[2]){
-        if (obj.images[2].mouseOver()){
-          obj.element.css('cursor','all-scroll');
-        } else {
-          obj.element.css('cursor','default');
+        obj.element.css('cursor','default');
+
+        if (obj.images[2].mouseOver()){ obj.element.css('cursor','all-scroll'); }
+
+        if (obj.images[2].mouseOverPointLU()){
+          obj.move_img = false;
+          obj.element.css('cursor','nw-resize');
+        }
+
+        if (obj.images[2].mouseOverPointRU()){
+          obj.move_img = false;
+          obj.element.css('cursor','ne-resize');
+        }
+
+        if (obj.images[2].mouseOverPointLD()){
+          obj.move_img = false;
+          obj.element.css('cursor','sw-resize');
+        }
+
+        if (obj.images[2].mouseOverPointRD()){
+          obj.move_img = false;
+          obj.element.css('cursor','se-resize');
         }
 
         if(obj.move_img){
@@ -86,6 +109,11 @@ class CanvasManager{
       this.context.strokeStyle = "#FF0000";
       this.context.lineWidth = 2;
       this.context.strokeRect(this.images[2].x, this.images[2].y, this.images[2].w, this.images[2].h);
+      this.context.fillStyle = "#FF0000";
+      this.context.fillRect(this.images[2].x-5, this.images[2].y-5, 10, 10);
+      this.context.fillRect(this.images[2].x+this.images[2].w-5, this.images[2].y+this.images[2].h-5, 10, 10);
+      this.context.fillRect(this.images[2].x+this.images[2].w-5, this.images[2].y-5, 10, 10);
+      this.context.fillRect(this.images[2].x-5, this.images[2].y+this.images[2].h-5, 10, 10);
     }
   }
 
