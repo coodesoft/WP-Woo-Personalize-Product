@@ -53,7 +53,9 @@ class CanvasManager{
     setInterval(function(){obj.draw()},18);
 
     this.move_img = false;
+    this.resize   = false;
     this.diff_x = 0; this.diff_y = 0;
+    this.img_selected = true;
 
     this.element.mousemove(function(e){
       let offset  = $('#canvas').offset();
@@ -68,6 +70,8 @@ class CanvasManager{
         if (obj.images[2].mouseOverPointLU()){
           obj.move_img = false;
           obj.element.css('cursor','nw-resize');
+          obj.images[2].w += obj.diff_x;
+          obj.images[2].h += obj.diff_y;
         }
 
         if (obj.images[2].mouseOverPointRU()){
@@ -86,6 +90,7 @@ class CanvasManager{
         }
 
         if(obj.move_img){
+          obj.resize      = false;
           obj.images[2].x = obj.mouse_x-obj.diff_x;
           obj.images[2].y = obj.mouse_y-obj.diff_y;
         }
@@ -94,13 +99,21 @@ class CanvasManager{
 
     this.element.mousedown(function(e){
       if(obj.images[2]){
+        obj.img_selected = false;
         obj.diff_x = obj.mouse_x-obj.images[2].x; obj.diff_y = obj.mouse_y-obj.images[2].y;
         obj.move_img = obj.images[2].mouseOver();
+        obj.resize   = obj.images[2].mouseOverPointLU() && !obj.move_img;
+        obj.resize   = obj.images[2].mouseOverPointRU() && !obj.move_img;
+        obj.resize   = obj.images[2].mouseOverPointLD() && !obj.move_img;
+        obj.resize   = obj.images[2].mouseOverPointRD() && !obj.move_img;
+
+        obj.img_selected = obj.resize || obj.move_img;
       }
     });
 
     this.element.mouseup(function(e){
       obj.move_img = false;
+      obj.resize   = false;
     });
   }
 
@@ -122,7 +135,7 @@ class CanvasManager{
     for(let c=0;c< this.images.length;c++){
       this.context.drawImage( this.images[c].img, this.images[c].x, this.images[c].y, this.images[c].w, this.images[c].h);
     }
-    this.setImgPointers();
+    if (this.img_selected){ this.setImgPointers(); }
   }
 
   setImg(t,src,callback=-1){
