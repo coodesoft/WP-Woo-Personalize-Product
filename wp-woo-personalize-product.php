@@ -13,6 +13,14 @@ License: GPL v3
 function coode_WPP_short_code_tour() {
     return '
 <div class="WPP_container">
+    <div class="WPP_pop_up_wrapper">
+      <div class="WPP_editor_wrapper">
+        <div>
+          <canvas id="canvas" width="300px" height="300px"></canvas>
+        </div>
+        <div class="closer-edit"><div id="edit-closer" class="closer"></div></div>
+      </div>
+    </div>
     <div class="WPP-inner-wrapper">
 
         <div class="headline">
@@ -79,9 +87,7 @@ function coode_WPP_short_code_tour() {
                       </div>-->
                     </div>
                 </div>
-
-                  <canvas id="canvas" width="300px" height="300px"></canvas>
-                  <input type="file" id="file-reader" />
+                <input type="file" id="file-reader" />
             </div>
 
             <div class="stg down" id="stage-5">

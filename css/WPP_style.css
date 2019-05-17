@@ -1,5 +1,24 @@
 #file-reader{ display:none; }
+.WPP_editor_wrapper{
+  position: absolute;
+width: 520px;
+height: 490px;
+left: 50%;
+margin-left: -260px;
+top: 50%;
+margin-top: -245px;
+}
+.closer-edit{ position:absolute;top: 0; right: 0;}
 
+.WPP_pop_up_wrapper{
+  position: fixed;
+  background: rgba(255,255,255,0.75);
+  display: none;
+  z-index: 999999;
+  top:0px;left:0px;
+  transition: all 0.26s ease-out; overflow: auto;
+  width: 100%; height: 100%;
+}
 .WPP_container{  position: relative;  top: 0px;  height: 410px;}
 
 .WPP_container .WPP-inner-wrapper{

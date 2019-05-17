@@ -323,6 +323,10 @@ class CoodeWWPPlugin{
         obj.go_to_step(4);
     });
 
+    $('#edit-closer').click(function(){
+      $(".WPP_pop_up_wrapper").css('display','none');
+    });
+
     //se recorren los botones del checkpoint
     $('.stage-headline').click( function() {
         let d = $(this).attr('data-target');
@@ -334,6 +338,7 @@ class CoodeWWPPlugin{
       $('#file-reader').click();
     });
     $('#file-reader').change(function(e){
+      $(".WPP_pop_up_wrapper").css('display','block');
       let file = e.target.files[0];
 
       if ( !(file.type == "image/png" || file.type == "image/jpg" || file.type == "image/bmp" || file.type == "image/jpeg") ){
