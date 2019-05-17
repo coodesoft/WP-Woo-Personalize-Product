@@ -26,8 +26,11 @@ class CanvasImg{
   setTam(w,h){ this.w=w; this.h=h; }
   scaleToContainer(z){
     let r = (this.canvas.canvas_w/this.w)/z;
-    console.log(this.canvas.canvas_w);
     this.w = this.w*r; this.h = this.h*r;
+  }
+
+  mouseOver(){
+    return (this.canvas.mouse_x > this.x && this.canvas.mouse_x < this.x + this.w && this.canvas.mouse_y > this.y && this.canvas.mouse_y < this.y + this.h);
   }
 }
 
@@ -35,11 +38,55 @@ class CanvasManager{
   constructor(){
     this.canvas   = document.getElementById('canvas');
     this.context  = this.canvas.getContext( '2d' );
-    this.canvas_h = 200;
-    this.canvas_w = 200;
+    this.element  = $('#canvas');
+    this.canvas_h = this.element[0].height;
+    this.canvas_w = this.element[0].width;
+    this.mouse_x  = 0;
+    this.mouse_y  = 0;
     this.images   = [];
     let obj       = this;
     setInterval(function(){obj.draw()},18);
+
+    this.move_img = false;
+    this.diff_x = 0; this.diff_y = 0;
+
+    this.element.mousemove(function(e){
+      let offset  = $('#canvas').offset();
+      obj.mouse_x = e.pageX - offset.left;
+      obj.mouse_y = e.pageY - offset.top;
+
+      if(obj.images[2]){
+        if (obj.images[2].mouseOver()){
+          obj.element.css('cursor','all-scroll');
+        } else {
+          obj.element.css('cursor','default');
+        }
+
+        if(obj.move_img){
+          obj.images[2].x = obj.mouse_x-obj.diff_x;
+          obj.images[2].y = obj.mouse_y-obj.diff_y;
+        }
+      }
+    });
+
+    this.element.mousedown(function(e){
+      if(obj.images[2]){
+        obj.diff_x = obj.mouse_x-obj.images[2].x; obj.diff_y = obj.mouse_y-obj.images[2].y;
+        obj.move_img = obj.images[2].mouseOver();
+      }
+    });
+
+    this.element.mouseup(function(e){
+      obj.move_img = false;
+    });
+  }
+
+  setImgPointers(){
+    if(this.images[2]){
+      this.context.strokeStyle = "#FF0000";
+      this.context.lineWidth = 2;
+      this.context.strokeRect(this.images[2].x, this.images[2].y, this.images[2].w, this.images[2].h);
+    }
   }
 
   draw(){
@@ -47,11 +94,13 @@ class CanvasManager{
     for(let c=0;c< this.images.length;c++){
       this.context.drawImage( this.images[c].img, this.images[c].x, this.images[c].y, this.images[c].w, this.images[c].h);
     }
+    this.setImgPointers();
   }
 
   setImg(t,src,callback=-1){
     this.images[t] = new CanvasImg(src,this,callback);
   }
+
 }
 
 class CoodeWWPPlugin{

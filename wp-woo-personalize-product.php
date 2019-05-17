@@ -80,7 +80,7 @@ function coode_WPP_short_code_tour() {
                     </div>
                 </div>
 
-                  <canvas id="canvas" width="200px" height="200px"></canvas>
+                  <canvas id="canvas" width="300px" height="300px"></canvas>
                   <input type="file" id="file-reader" />
             </div>
 
