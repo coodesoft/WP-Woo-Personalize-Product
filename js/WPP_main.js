@@ -7,8 +7,11 @@ class CanvasImg{
     this.src = url;
     this.h   = 0;
     this.w   = 0;
+    this.w_sq = 0;
+    this.h_sq = 0;
     this.x   = 0;
     this.y   = 0;
+    this.opacity = 1;
     this.loaded     = false;
     this.img        = new Image();
     this.img.src    = this.src;
@@ -18,9 +21,12 @@ class CanvasImg{
     this.img.onload = function(){
       obj.loaded = true;
       if (obj.h == 0){ obj.h = obj.img.height; obj.w = obj.img.width; }
+      obj.h_sq = obj.w/obj.h;
+      obj.w_sq = obj.h/obj.w;
       if(obj.on_load != -1) { obj.on_load(); }
     };
     this.canvas = c;
+    this.tam_point  = this.canvas.tam_point*2;
   }
 
   setPos(x,y){ this.x=x; this.y=y; }
@@ -34,10 +40,10 @@ class CanvasImg{
     return (this.canvas.mouse_x > this.x && this.canvas.mouse_x < this.x + this.w && this.canvas.mouse_y > this.y && this.canvas.mouse_y < this.y + this.h);
   }
 
-  mouseOverPointLU(){ return (this.canvas.mouse_x > this.x-5 && this.canvas.mouse_x < this.x+5 && this.canvas.mouse_y > this.y-5 && this.canvas.mouse_y < this.y+5);  }
-  mouseOverPointRU(){ return (this.canvas.mouse_x > this.x+this.w-5 && this.canvas.mouse_x < this.x+this.w+5 && this.canvas.mouse_y > this.y-5 && this.canvas.mouse_y < this.y+5);  }
-  mouseOverPointLD(){ return (this.canvas.mouse_x > this.x-5 && this.canvas.mouse_x < this.x+5 && this.canvas.mouse_y > this.y+this.h-5 && this.canvas.mouse_y < this.y+this.h+5);  }
-  mouseOverPointRD(){ return (this.canvas.mouse_x > this.x+this.w-5 && this.canvas.mouse_x < this.x+this.w+5 && this.canvas.mouse_y > this.y+this.h-5 && this.canvas.mouse_y < this.y+this.h+5) }
+  mouseOverPointLU(){ return (this.canvas.mouse_x > this.x-this.tam_point && this.canvas.mouse_x < this.x+this.tam_point && this.canvas.mouse_y > this.y-this.tam_point && this.canvas.mouse_y < this.y+this.tam_point);  }
+  mouseOverPointRU(){ return (this.canvas.mouse_x > this.x+this.w-this.tam_point && this.canvas.mouse_x < this.x+this.w+this.tam_point && this.canvas.mouse_y > this.y-this.tam_point && this.canvas.mouse_y < this.y+this.tam_point);  }
+  mouseOverPointLD(){ return (this.canvas.mouse_x > this.x-this.tam_point && this.canvas.mouse_x < this.x+this.tam_point && this.canvas.mouse_y > this.y+this.h-this.tam_point && this.canvas.mouse_y < this.y+this.h+this.tam_point);  }
+  mouseOverPointRD(){ return (this.canvas.mouse_x > this.x+this.w-this.tam_point && this.canvas.mouse_x < this.x+this.w+this.tam_point && this.canvas.mouse_y > this.y+this.h-this.tam_point && this.canvas.mouse_y < this.y+this.h+this.tam_point) }
 }
 
 class CanvasManager{
@@ -49,8 +55,9 @@ class CanvasManager{
     this.canvas_w = this.element[0].width;
     this.mouse_x  = 0;
     this.mouse_y  = 0;
-    this.images   = [];
-    let obj       = this;
+    this.images     = [];
+    this.tam_point  = 5;
+    let obj         = this;
     setInterval(function(){obj.draw()},18);
 
     this.move_img = false;
@@ -60,6 +67,8 @@ class CanvasManager{
     this.mouse_down   = false;
     this.m_prev_x     = 0;
     this.m_prev_y     = 0;
+    this.img_prev_h   = 0;
+    this.img_prev_w   = 0;
 
     this.element.mousemove(function(e){
       let offset  = $('#canvas').offset();
@@ -75,25 +84,55 @@ class CanvasManager{
           obj.move_img = false;
           obj.element.css('cursor','nw-resize');
           if (obj.mouse_down){
-            obj.images[2].scale += obj.images[2].w/obj.diff_x;
-            obj.images[2].scale += obj.images[2].h/obj.diff_y;
-          }
+            obj.images[2].x = obj.mouse_x;
+            obj.images[2].y = obj.mouse_y;
 
+            let d_x = obj.m_prev_x-obj.mouse_x;
+            let d_y = obj.m_prev_y-obj.mouse_y;
+
+            if(obj.img_prev_w+d_x > 40){ obj.images[2].w = obj.img_prev_w+d_x;}
+            if(obj.img_prev_h+d_y > 40){ obj.images[2].h = obj.img_prev_h+d_y;}
+          }
         }
 
         if (obj.images[2].mouseOverPointRU()){
           obj.move_img = false;
           obj.element.css('cursor','ne-resize');
+          if (obj.mouse_down){
+            obj.images[2].y = obj.mouse_y;
+
+            let d_x = obj.m_prev_x-obj.mouse_x;
+            let d_y = obj.m_prev_y-obj.mouse_y;
+
+            if(obj.img_prev_w-d_x > 40){ obj.images[2].w = obj.img_prev_w-d_x;}
+            if(obj.img_prev_h+d_y > 40){ obj.images[2].h = obj.img_prev_h+d_y;}
+          }
         }
 
         if (obj.images[2].mouseOverPointLD()){
           obj.move_img = false;
           obj.element.css('cursor','sw-resize');
+          if (obj.mouse_down){
+            obj.images[2].x = obj.mouse_x;
+
+            let d_x = obj.m_prev_x-obj.mouse_x;
+            let d_y = obj.m_prev_y-obj.mouse_y;
+
+            if(obj.img_prev_w+d_x > 40){ obj.images[2].w = obj.img_prev_w+d_x;}
+            if(obj.img_prev_h-d_y > 40){ obj.images[2].h = obj.img_prev_h-d_y;}
+          }
         }
 
         if (obj.images[2].mouseOverPointRD()){
           obj.move_img = false;
           obj.element.css('cursor','se-resize');
+          if (obj.mouse_down){
+            let d_x = obj.m_prev_x-obj.mouse_x;
+            let d_y = obj.m_prev_y-obj.mouse_y;
+
+            if(obj.img_prev_w-d_x > 40){ obj.images[2].w = obj.img_prev_w-d_x;}
+            if(obj.img_prev_h-d_y > 40){ obj.images[2].h = obj.img_prev_h-d_y;}
+          }
         }
 
         if(obj.move_img){
@@ -118,6 +157,7 @@ class CanvasManager{
         obj.resize   = obj.images[2].mouseOverPointRD();
 
         obj.img_selected = obj.resize || obj.move_img;
+        obj.img_prev_w = obj.images[2].w; obj.img_prev_h = obj.images[2].h;
       }
     });
 
@@ -134,16 +174,17 @@ class CanvasManager{
       this.context.lineWidth = 2;
       this.context.strokeRect(this.images[2].x, this.images[2].y, this.images[2].w, this.images[2].h);
       this.context.fillStyle = "#FF0000";
-      this.context.fillRect(this.images[2].x-5, this.images[2].y-5, 10, 10);
-      this.context.fillRect(this.images[2].x+this.images[2].w-5, this.images[2].y+this.images[2].h-5, 10, 10);
-      this.context.fillRect(this.images[2].x+this.images[2].w-5, this.images[2].y-5, 10, 10);
-      this.context.fillRect(this.images[2].x-5, this.images[2].y+this.images[2].h-5, 10, 10);
+      this.context.fillRect(this.images[2].x-this.tam_point, this.images[2].y-this.tam_point, 10, 10);
+      this.context.fillRect(this.images[2].x+this.images[2].w-this.tam_point, this.images[2].y+this.images[2].h-this.tam_point, 10, 10);
+      this.context.fillRect(this.images[2].x+this.images[2].w-this.tam_point, this.images[2].y-this.tam_point, 10, 10);
+      this.context.fillRect(this.images[2].x-this.tam_point, this.images[2].y+this.images[2].h-this.tam_point, 10, 10);
     }
   }
 
   draw(){
     this.context.clearRect(0,0,this.canvas_w,this.canvas_h);
     for(let c=0;c< this.images.length;c++){
+      this.context.globalAlpha = this.images[c].opacity;
       this.context.drawImage( this.images[c].img, this.images[c].x, this.images[c].y, this.images[c].w, this.images[c].h);
     }
     if (this.img_selected){ this.setImgPointers(); }
@@ -299,6 +340,7 @@ class CoodeWWPPlugin{
       }
       obj.canvas_adm.setImg(2, URL.createObjectURL(file),function(){
         obj.canvas_adm.images[2].scale = 2;
+        obj.canvas_adm.images[2].opacity = 0.75;
         obj.canvas_adm.images[2].scaleToContainer();
       });
     });
