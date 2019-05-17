@@ -2,6 +2,57 @@ document.addEventListener('DOMContentLoaded', function() {
   let plugin = new CoodeWWPPlugin();
 }, false);
 
+class CanvasImg{
+  constructor(url,c,cc){
+    this.src = url;
+    this.h   = 0;
+    this.w   = 0;
+    this.x   = 0;
+    this.y   = 0;
+    this.loaded     = false;
+    this.img        = new Image();
+    this.img.src    = this.src;
+    let obj         = this;
+    this.on_load    = cc;
+    this.img.onload = function(){
+      obj.loaded = true;
+      if (obj.h == 0){ obj.h = obj.img.height; obj.w = obj.img.width; }
+      if(obj.on_load != -1) { obj.on_load(); }
+    };
+    this.canvas = c;
+  }
+
+  setPos(x,y){ this.x=x; this.y=y; }
+  setTam(w,h){ this.w=w; this.h=h; }
+  scaleToContainer(z){
+    let r = (this.canvas.canvas_w/this.w)/z;
+    console.log(this.canvas.canvas_w);
+    this.w = this.w*r; this.h = this.h*r;
+  }
+}
+
+class CanvasManager{
+  constructor(){
+    this.canvas   = document.getElementById('canvas');
+    this.context  = this.canvas.getContext( '2d' );
+    this.canvas_h = 200;
+    this.canvas_w = 200;
+    this.images   = [];
+    let obj       = this;
+    setInterval(function(){obj.draw()},18);
+  }
+
+  draw(){
+    this.context.clearRect(0,0,this.canvas_w,this.canvas_h);
+    for(let c=0;c< this.images.length;c++){
+      this.context.drawImage( this.images[c].img, this.images[c].x, this.images[c].y, this.images[c].w, this.images[c].h);
+    }
+  }
+
+  setImg(t,src,callback=-1){
+    this.images[t] = new CanvasImg(src,this,callback);
+  }
+}
 
 class CoodeWWPPlugin{
   constructor(){
@@ -9,10 +60,8 @@ class CoodeWWPPlugin{
     this.pref_url      = WPP_URL;
 
     this.take_img_bt    = $('#go-take-photo');
-    this.canvas         = document.getElementById('canvas');
-    this.context        = this.canvas.getContext( '2d' );
-    this.canvas_h       = 200;
-    this.canvas_w       = 200;
+    this.canvas_adm     = new CanvasManager();
+
     this.stage_DOM_obj  = [];
 
     this.pedido = {'material':null,'material_n':'', 'material_img_url':'', 'forma':null, 'forma_n':'','forma_img_url':'', 'tamanio':null, 'tamanio_n':'', 'imagen':null};
@@ -123,18 +172,10 @@ class CoodeWWPPlugin{
         obj.pedido.tamanio   = $(this).attr('data-id');
         obj.pedido.tamanio_n = $(this).attr('data-name');
         $('#indication-size').html(obj.pedido.tamanio_n);
-        let imageObj = new Image();
-        let imageObj2 = new Image();
-        imageObj.src = obj.pedido.material_img_url;
-        imageObj.onload = function () {
-          obj.context.drawImage( imageObj, 0, 0 ,obj.canvas_w,obj.canvas_h);
-
-          imageObj2.src = obj.pedido.forma_img_url;
-          imageObj2.onload = function () {
-            console.log(imageObj2);
-            obj.context.drawImage( imageObj2, 0, 0);
-          }
-        }
+        obj.canvas_adm.setImg(0, obj.pedido.material_img_url);
+        obj.canvas_adm.setImg(1, obj.pedido.forma_img_url);
+        obj.canvas_adm.images[0].setTam(obj.canvas_adm.canvas_w, obj.canvas_adm.canvas_h);
+        obj.canvas_adm.images[1].setTam(obj.canvas_adm.canvas_w, obj.canvas_adm.canvas_h);
         obj.go_to_step(4);
     });
 
@@ -146,7 +187,18 @@ class CoodeWWPPlugin{
 
     //Se sube la Imagen
     $('#upload-photo').click(function(){
+      $('#file-reader').click();
+    });
+    $('#file-reader').change(function(e){
+      let file = e.target.files[0];
 
+      if ( !(file.type == "image/png" || file.type == "image/jpg" || file.type == "image/bmp" || file.type == "image/jpeg") ){
+        alert('Solo se pueden subir imágenes .PNG, .BMP o .JPG');
+        return true;
+      }
+      obj.canvas_adm.setImg(2, URL.createObjectURL(file),function(){
+        obj.canvas_adm.images[2].scaleToContainer(2);
+      });
     });
   }
 

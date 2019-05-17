@@ -81,7 +81,7 @@ function coode_WPP_short_code_tour() {
                 </div>
 
                   <canvas id="canvas" width="200px" height="200px"></canvas>
-
+                  <input type="file" id="file-reader" />
             </div>
 
             <div class="stg down" id="stage-5">

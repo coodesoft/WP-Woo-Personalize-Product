@@ -1,8 +1,6 @@
-.WPP_container{
-  position: relative;
-  top: 0px;
-  height: 410px;
-}
+#file-reader{ display:none; }
+
+.WPP_container{  position: relative;  top: 0px;  height: 410px;}
 
 .WPP_container .WPP-inner-wrapper{
     position: absolute;
