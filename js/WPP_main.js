@@ -14,6 +14,7 @@ class CanvasImg{
     this.img.src    = this.src;
     let obj         = this;
     this.on_load    = cc;
+    this.scale      = 2;
     this.img.onload = function(){
       obj.loaded = true;
       if (obj.h == 0){ obj.h = obj.img.height; obj.w = obj.img.width; }
@@ -24,8 +25,8 @@ class CanvasImg{
 
   setPos(x,y){ this.x=x; this.y=y; }
   setTam(w,h){ this.w=w; this.h=h; }
-  scaleToContainer(z){
-    let r = (this.canvas.canvas_w/this.w)/z;
+  scaleToContainer(){
+    let r = (this.canvas.canvas_w/this.w)/this.scale;
     this.w = this.w*r; this.h = this.h*r;
   }
 
@@ -56,6 +57,9 @@ class CanvasManager{
     this.resize   = false;
     this.diff_x = 0; this.diff_y = 0;
     this.img_selected = true;
+    this.mouse_down   = false;
+    this.m_prev_x     = 0;
+    this.m_prev_y     = 0;
 
     this.element.mousemove(function(e){
       let offset  = $('#canvas').offset();
@@ -70,8 +74,11 @@ class CanvasManager{
         if (obj.images[2].mouseOverPointLU()){
           obj.move_img = false;
           obj.element.css('cursor','nw-resize');
-          obj.images[2].w += obj.diff_x;
-          obj.images[2].h += obj.diff_y;
+          if (obj.mouse_down){
+            obj.images[2].scale += obj.images[2].w/obj.diff_x;
+            obj.images[2].scale += obj.images[2].h/obj.diff_y;
+          }
+
         }
 
         if (obj.images[2].mouseOverPointRU()){
@@ -98,22 +105,26 @@ class CanvasManager{
     });
 
     this.element.mousedown(function(e){
+      obj.mouse_down = true;
+      obj.m_prev_x   = obj.mouse_x;
+      obj.m_prev_y   = obj.mouse_y;
       if(obj.images[2]){
         obj.img_selected = false;
         obj.diff_x = obj.mouse_x-obj.images[2].x; obj.diff_y = obj.mouse_y-obj.images[2].y;
         obj.move_img = obj.images[2].mouseOver();
-        obj.resize   = obj.images[2].mouseOverPointLU() && !obj.move_img;
-        obj.resize   = obj.images[2].mouseOverPointRU() && !obj.move_img;
-        obj.resize   = obj.images[2].mouseOverPointLD() && !obj.move_img;
-        obj.resize   = obj.images[2].mouseOverPointRD() && !obj.move_img;
+        obj.resize   = obj.images[2].mouseOverPointLU();
+        obj.resize   = obj.images[2].mouseOverPointRU();
+        obj.resize   = obj.images[2].mouseOverPointLD();
+        obj.resize   = obj.images[2].mouseOverPointRD();
 
         obj.img_selected = obj.resize || obj.move_img;
       }
     });
 
     this.element.mouseup(function(e){
-      obj.move_img = false;
-      obj.resize   = false;
+      obj.move_img   = false;
+      obj.resize     = false;
+      obj.mouse_down = false;
     });
   }
 
@@ -287,7 +298,8 @@ class CoodeWWPPlugin{
         return true;
       }
       obj.canvas_adm.setImg(2, URL.createObjectURL(file),function(){
-        obj.canvas_adm.images[2].scaleToContainer(2);
+        obj.canvas_adm.images[2].scale = 2;
+        obj.canvas_adm.images[2].scaleToContainer();
       });
     });
   }
