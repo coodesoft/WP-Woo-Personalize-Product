@@ -34,6 +34,8 @@ class CanvasImg{
   scaleToContainer(){
     let r = (this.canvas.canvas_w/this.w)/this.scale;
     this.w = this.w*r; this.h = this.h*r;
+    this.x = this.canvas.canvas_w*0.25;
+    this.y = this.canvas.canvas_h*0.25;
   }
 
   mouseOver(){
