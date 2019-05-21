@@ -18,6 +18,7 @@ class CanvasImg{
     let obj         = this;
     this.on_load    = cc;
     this.scale      = 2;
+    this.angle      = 0;
     this.img.onload = function(){
       obj.loaded = true;
       if (obj.h == 0){ obj.h = obj.img.height; obj.w = obj.img.width; }
@@ -46,6 +47,7 @@ class CanvasImg{
   mouseOverPointRU(){ return (this.canvas.mouse_x > this.x+this.w-this.tam_point && this.canvas.mouse_x < this.x+this.w+this.tam_point && this.canvas.mouse_y > this.y-this.tam_point && this.canvas.mouse_y < this.y+this.tam_point);  }
   mouseOverPointLD(){ return (this.canvas.mouse_x > this.x-this.tam_point && this.canvas.mouse_x < this.x+this.tam_point && this.canvas.mouse_y > this.y+this.h-this.tam_point && this.canvas.mouse_y < this.y+this.h+this.tam_point);  }
   mouseOverPointRD(){ return (this.canvas.mouse_x > this.x+this.w-this.tam_point && this.canvas.mouse_x < this.x+this.w+this.tam_point && this.canvas.mouse_y > this.y+this.h-this.tam_point && this.canvas.mouse_y < this.y+this.h+this.tam_point) }
+  mouseOverPointLD(){ return (this.canvas.mouse_x > this.x-this.tam_point && this.canvas.mouse_x < this.x+this.tam_point && this.canvas.mouse_y > this.y+this.h-this.tam_point && this.canvas.mouse_y < this.y+this.h+this.tam_point);  }
 }
 
 class CanvasManager{
@@ -64,6 +66,7 @@ class CanvasManager{
 
     this.move_img = false;
     this.resize   = false;
+    this.rotate   = false;
     this.diff_x = 0; this.diff_y = 0;
     this.img_selected = true;
     this.mouse_down   = false;
@@ -172,6 +175,7 @@ class CanvasManager{
 
   setImgPointers(){
     if(this.images[2]){
+      this.context.rotate(this.images[2].angle);
       this.context.strokeStyle = "#FF0000";
       this.context.lineWidth = 2;
       this.context.strokeRect(this.images[2].x, this.images[2].y, this.images[2].w, this.images[2].h);
@@ -180,6 +184,10 @@ class CanvasManager{
       this.context.fillRect(this.images[2].x+this.images[2].w-this.tam_point, this.images[2].y+this.images[2].h-this.tam_point, 10, 10);
       this.context.fillRect(this.images[2].x+this.images[2].w-this.tam_point, this.images[2].y-this.tam_point, 10, 10);
       this.context.fillRect(this.images[2].x-this.tam_point, this.images[2].y+this.images[2].h-this.tam_point, 10, 10);
+
+      this.context.fillRect(this.images[2].x+this.images[2].w/2, this.images[2].y-this.images[2].h/4, 1, this.images[2].h/4);
+      this.context.fillRect(this.images[2].x-this.tam_point+this.images[2].w/2, this.images[2].y-this.tam_point-this.images[2].h/4, 11, 10);
+      this.context.rotate(-this.images[2].angle);
     }
   }
 
@@ -187,7 +195,10 @@ class CanvasManager{
     this.context.clearRect(0,0,this.canvas_w,this.canvas_h);
     for(let c=0;c< this.images.length;c++){
       this.context.globalAlpha = this.images[c].opacity;
+      this.context.rotate(this.images[c].angle);
+      this.context.imageSmoothingEnabled = true;
       this.context.drawImage( this.images[c].img, this.images[c].x, this.images[c].y, this.images[c].w, this.images[c].h);
+      this.context.rotate(-this.images[c].angle); //se vuelve a dejar el lienzo como estaba
     }
     if (this.img_selected){ this.setImgPointers(); }
   }
