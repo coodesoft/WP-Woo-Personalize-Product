@@ -14,6 +14,13 @@ function coode_WPP_short_code_tour() {
     return '
 <div class="WPP_container">
     <div class="WPP_pop_up_wrapper">
+      <div class="WPP_editor_inf_wr">
+        <h5><b>Instrucciones</b></h5>
+        <p>Use el mouse para arrastrar la imagen seleccionada</p>
+        <p>Puede cambiar el tamaño de la imagen con los cuadros de los extremos de la selección</p>
+        <p>Puede girar la imagen con el cuadro superior de la selección de la imagen</p>
+        <p>Si pierde la selección, puede volver a visualizarla haciendo click sobre la imagen</p>
+      </div>
       <div class="WPP_editor_wrapper">
         <div>
           <canvas id="canvas" width="300px" height="300px"></canvas>
