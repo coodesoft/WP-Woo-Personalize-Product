@@ -26,6 +26,10 @@ function coode_WPP_short_code_tour() {
           <canvas id="canvas" width="300px" height="300px"></canvas>
         </div>
         <div class="closer-edit"><div id="edit-closer" class="closer"></div></div>
+        <div class="WPP_editor_btn">
+          <div class="upload-photo">Reemplazar imagen</div>
+          <div class="">Bien, estoy satisfecho</div>
+        </div>
       </div>
     </div>
     <div class="WPP-inner-wrapper">
@@ -84,7 +88,7 @@ function coode_WPP_short_code_tour() {
                 <div class="st5-edit-1">
                   <h5 class="ta-c m-t-20" style="line-height: 1.2"> Bien, ahora suba la imagen que quiere incluir en el producto. </h5>
                   <div class="icons m-t-40">
-                      <div class="icon" id="upload-photo">
+                      <div class="icon upload-photo">
                           <i class="fa fa-upload" aria-hidden="true"></i>
                           <p>Subir imagen</p>
                       </div>

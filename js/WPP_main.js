@@ -345,7 +345,7 @@ class CoodeWWPPlugin{
     });
 
     //Se sube la Imagen
-    $('#upload-photo').click(function(){
+    $('.upload-photo').click(function(){
       $('#file-reader').click();
     });
     $('#file-reader').change(function(e){
