@@ -28,7 +28,7 @@ function coode_WPP_short_code_tour() {
         <div class="closer-edit"><div id="edit-closer" class="closer"></div></div>
         <div class="WPP_editor_btn">
           <div class="upload-photo">Reemplazar imagen</div>
-          <div class="">Bien, estoy satisfecho</div>
+          <div class="go-to-cart">Bien, estoy satisfecho</div>
         </div>
       </div>
     </div>
@@ -106,9 +106,7 @@ function coode_WPP_short_code_tour() {
                         <div class="the-details">
                             <div class="center-wrapper">
                                 <div class="center">
-                                    <h5>
-                                         Your Instablock:
-                                    </h5>
+                                    <h5>Su producto:</h5>
                                     <p class="m-t-10" style="color: white; display: block; line-height: 1.2; background: transparent; padding: 0; font-size: 14px">
                                         <span id="final-name"></span>
                                     </p>
@@ -118,23 +116,29 @@ function coode_WPP_short_code_tour() {
                                 </div>
                             </div>
                         </div>
+                        <div class="final-image">
+                          <img id="WPP-img-final" src="" alt="">
+                          <div class="overlay">
+                            <div class="center-wrapper ta-c">
+                              <div class="center"><i class="fa fa-search-plus final-image-magnifier"></i>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                     </div>
                     <div class="buttons m-t-20">
                         <div class="helper-buttons-row m-t-20">
                             <div class="quantity" id="helper-quantity">
-                                <label>
-                                    Quantity:
-                                </label>
+                                <label>Cantidad: </label>
                                 <input type="number" min="0" max="20" value="1" id="helper-quantity-input">
                             </div>
-                            <div class="button green" id="special-add-to-cart" onclick="productAdded()">
-                                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                                Add to cart
+                            <div class="button green" id="special-add-to-cart">
+                                <i class="fa fa-cart-plus" aria-hidden="true"></i> Agregar al carrito
                             </div>
                         </div>
                         <div class="button red small m-t-20" id="start-over">
                             <i class="fa fa-undo" aria-hidden="true"></i>
-                            Start over
+                            Empezar de nuevo
                         </div>
                     </div>
                     <div class="added-panel down" id="added-panel">

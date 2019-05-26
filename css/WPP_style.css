@@ -638,3 +638,14 @@ label {
 }
 
 .active .circle{ color:#fff !important; }
+
+.final-image {
+    position: relative;
+    width: auto;
+    height: 130px;
+    float: left;
+    margin-right: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+.final-image img{height: 100%;}

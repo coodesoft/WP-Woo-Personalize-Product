@@ -207,6 +207,12 @@ class CanvasManager{
     this.images[t] = new CanvasImg(src,this,callback);
   }
 
+  getCanvasImg(){
+    this.img_selected = false;
+    this.draw();
+    return this.canvas.toDataURL("image/png");
+  }
+
 }
 
 class CoodeWWPPlugin{
@@ -225,6 +231,10 @@ class CoodeWWPPlugin{
     this.anterior_step = 0;
 
     this.load_data();
+  }
+
+  save_product_img(){
+    this.pedido.imagen = this.canvas_adm.getCanvasImg();
   }
 
   reference_html(){
@@ -361,6 +371,24 @@ class CoodeWWPPlugin{
         obj.canvas_adm.images[2].opacity = 0.75;
         obj.canvas_adm.images[2].scaleToContainer();
       });
+    });
+
+    //se añade al carrito
+    $('.go-to-cart').click(function(){
+      $(".WPP_pop_up_wrapper").css('display','none');
+      obj.save_product_img();
+      $('#WPP-img-final').attr('src',obj.pedido.imagen);
+      obj.go_to_step(5);
+    });
+
+    //se presiona el boton de agregar al carrito
+    $('#special-add-to-cart').click(function(){
+
+    });
+
+    //se preciona el boton de empezar de nuevo
+    $('#start-over').click(function(){
+      obj.go_to_step(1);
     });
   }
 
