@@ -56,8 +56,7 @@ function handle_WPP_add_to_cart(){
     ["name"=>"forma_id","options"=>[htmlspecialchars($post['forma'])],"position"=>1,"visible"=>1,"variation"=>1],
     ["name"=>"forma_name","options"=>[htmlspecialchars($post['forma_n'])],"position"=>1,"visible"=>1,"variation"=>1],
     ["name"=>"tamanio_id","options"=>[htmlspecialchars($post['tamanio'])],"position"=>1,"visible"=>1,"variation"=>1],
-    ["name"=>"tamanio_n","options"=>[htmlspecialchars($post['tamanio_n'])],"position"=>1,"visible"=>1,"variation"=>1],
-    ["name"=>"imagen","options"=>[$post['imagen']],"position"=>1,"visible"=>1,"variation"=>1]
+    ["name"=>"tamanio_n","options"=>[htmlspecialchars($post['tamanio_n'])],"position"=>1,"visible"=>1,"variation"=>1]
   ];
   if($attributes){
   	$productAttributes=[];
@@ -97,15 +96,22 @@ function coode_WPP_uploadMedia($image_url){
   $output_file = getcwd().'/wp-content/uploads/'.round(microtime(true) * 1000).'personalizado.png';
   file_put_contents( $output_file, base64_decode( $image_url ) );
 
-	$media = media_sideload_image($output_file,0);
-	$attachments = get_posts(array(
-		'post_type' => 'attachment',
-		'post_status' => null,
-		'post_parent' => 0,
-		'orderby' => 'post_date',
-		'order' => 'DESC'
-	));
-	return $attachments[0]->ID;
+  $upload_dir = wp_upload_dir();
+  $filename = basename( $output_file );
+  $wp_filetype = wp_check_filetype( $filename, null );
+
+	$attachment = [
+    'post_mime_type' => $wp_filetype['type'],
+    'post_title' => sanitize_file_name( $filename ),
+    'post_content' => '',
+    'post_status' => 'inherit',
+    'file' => sanitize_file_name( $filename ),
+    'width'=> '1200', 'height'=>'1200'
+  ];
+  $attach_id = wp_insert_attachment( $attachment, $filename );
+  $attach_data = wp_generate_attachment_metadata( $attach_id, $filename );
+  wp_update_attachment_metadata( $attach_id, $attach_data );
+	return $attach_id;
 }
 
 function coode_WPP_short_code_tour() {
