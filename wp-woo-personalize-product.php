@@ -10,6 +10,98 @@ Author URI: https://www.coodesoft.com.ar
 License: GPL v3
 */
 
+add_action('init', 'handle_WPP_add_to_cart');
+function handle_WPP_add_to_cart(){
+  $post   = $_POST;
+  $salida = [];
+
+  if (count($post) == 0) { return false; }
+
+  $product = new WC_Product();
+  $product->set_name(htmlspecialchars($post['material_n']).' '.htmlspecialchars($post['forma_n'])).' '.htmlspecialchars($post['tamanio_n']);
+  $product->set_status('publish');
+  $product->set_catalog_visibility('visible');
+  $product->set_description("Producto personalizado ".htmlspecialchars($post['material_n']).' '.htmlspecialchars($post['forma_n'])).' '.htmlspecialchars($post['tamanio_n']);
+  $product->set_price(htmlspecialchars($post['precio']));
+  $product->set_manage_stock(true);
+  $product->set_stock_quantity(htmlspecialchars($post['cantidad']));
+  $product->set_stock_status('instock');
+  $product->set_backorders('no');
+  $product->set_reviews_allowed(true);
+  $product->set_sold_individually(false);
+
+  $productImagesIDs = [];
+  $images[]         = $post['imagen'];
+
+  foreach($images as $image){
+	   $mediaID = coode_WPP_uploadMedia($image);
+	   if($mediaID) $productImagesIDs[] = $mediaID;
+  }
+
+  if($productImagesIDs){
+  	$product->set_image_id($productImagesIDs[0]); // set the first image as primary image of the product
+    //in case we have more than 1 image, then add them to product gallery.
+  	if(count($productImagesIDs) > 1){
+  		$product->set_gallery_image_ids($productImagesIDs);
+  	}
+  }
+
+  $salida['product_id'] = $product->save();
+
+  $attributes = [
+  	["name"=>"material_name","options"=>[htmlspecialchars($post['material_n'])],"position"=>1,"visible"=>1,"variation"=>1],
+  	["name"=>"material_id","options"=>[htmlspecialchars($post['material'])],"position"=>1,"visible"=>1,"variation"=>1],
+    ["name"=>"forma_id","options"=>[htmlspecialchars($post['forma'])],"position"=>1,"visible"=>1,"variation"=>1],
+    ["name"=>"forma_name","options"=>[htmlspecialchars($post['forma_n'])],"position"=>1,"visible"=>1,"variation"=>1],
+    ["name"=>"tamanio_id","options"=>[htmlspecialchars($post['tamanio'])],"position"=>1,"visible"=>1,"variation"=>1],
+    ["name"=>"tamanio_n","options"=>[htmlspecialchars($post['tamanio_n'])],"position"=>1,"visible"=>1,"variation"=>1],
+    ["name"=>"imagen","options"=>[$post['imagen']],"position"=>1,"visible"=>1,"variation"=>1]
+  ];
+  if($attributes){
+  	$productAttributes=[];
+  	foreach($attributes as $attribute){
+  		$attr = wc_sanitize_taxonomy_name(stripslashes($attribute["name"])); // remove any unwanted chars and return the valid string for taxonomy name
+  		$attr = 'pa_'.$attr; // woocommerce prepend pa_ to each attribute name
+  		if($attribute["options"]){
+  			foreach($attribute["options"] as $option){
+  				wp_set_object_terms($salida['product_id'],$option,$attr,true); // save the possible option value for the attribute which will be used for variation later
+  			}
+  		}
+  		$productAttributes[sanitize_title($attr)] = array(
+  			'name' => sanitize_title($attr),
+  			'value' => $attribute["options"],
+  			'position' => $attribute["position"],
+  			'is_visible' => $attribute["visible"],
+  			'is_variation' => $attribute["variation"],
+  			'is_taxonomy' => '1'
+  		);
+  	}
+  	update_post_meta($salida['product_id'],'_product_attributes',$productAttributes); // save the meta entry for product attributes
+  }
+
+  echo json_encode($salida);
+  die();
+}
+
+function coode_WPP_uploadMedia($image_url){
+	require_once('wp-admin/includes/image.php');
+	require_once('wp-admin/includes/file.php');
+	require_once('wp-admin/includes/media.php');
+  $image_url = preg_replace( '/data:image\/.*;base64,/', '', $image_url );
+  $output_file = getcwd().'/wp-content/uploads/'.round(microtime(true) * 1000).'personalizado.png';
+  file_put_contents( $output_file, base64_decode( $image_url ) );
+
+	$media = media_sideload_image($image_url,0);
+	$attachments = get_posts(array(
+		'post_type' => 'attachment',
+		'post_status' => null,
+		'post_parent' => 0,
+		'orderby' => 'post_date',
+		'order' => 'DESC'
+	));
+	return $attachments[0]->ID;
+}
+
 function coode_WPP_short_code_tour() {
     return '
 <div class="WPP_container">
@@ -169,7 +261,8 @@ function coode_WPP_short_code_tour() {
     </div>
 </div>
 <script>
-  var WPP_URL = "'.plugins_url('data', __FILE__).'";
+  var WPP_URL      = "'.plugins_url('data', __FILE__).'";
+  var WPP_POST_URL = "'.admin_url('wppaddtocart').'";
 </script>
 ';
 }
@@ -196,4 +289,5 @@ function coode_WPP_enqueue_scripts() {
 add_action('wp_enqueue_scripts', 'coode_WPP_enqueue_scripts');
 
 register_activation_hook(__FILE__,'coode_WPP_on_activate');
+
 ?>

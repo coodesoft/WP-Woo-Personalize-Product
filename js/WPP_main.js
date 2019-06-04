@@ -225,7 +225,7 @@ class CoodeWWPPlugin{
 
     this.stage_DOM_obj  = [];
 
-    this.pedido = {'material':null,'material_n':'', 'material_img_url':'', 'forma':null, 'forma_n':'','forma_img_url':'', 'tamanio':null, 'tamanio_n':'', 'imagen':null};
+    this.pedido = {'material':null,'material_n':'', 'material_img_url':'', 'forma':null, 'forma_n':'','forma_img_url':'', 'tamanio':null, 'tamanio_n':'', 'imagen':null, 'precio':0, 'cantidad':0};
 
     this.actual_step   = 0;
     this.anterior_step = 0;
@@ -383,7 +383,9 @@ class CoodeWWPPlugin{
 
     //se presiona el boton de agregar al carrito
     $('#special-add-to-cart').click(function(){
+      $.post(WPP_POST_URL,obj.pedido, function(){
 
+      });
     });
 
     //se preciona el boton de empezar de nuevo
