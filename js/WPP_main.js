@@ -225,7 +225,7 @@ class CoodeWWPPlugin{
 
     this.stage_DOM_obj  = [];
 
-    this.pedido = {'material':null,'material_n':'', 'material_img_url':'', 'forma':null, 'forma_n':'','forma_img_url':'', 'tamanio':null, 'tamanio_n':'', 'imagen':null, 'precio':0, 'cantidad':0};
+    this.pedido = {'material':null,'material_n':'', 'material_img_url':'', 'forma':null, 'forma_n':'','forma_img_url':'', 'tamanio':null, 'tamanio_n':'', 'imagen':null, 'precio':0, 'cantidad':1};
 
     this.actual_step   = 0;
     this.anterior_step = 0;
@@ -336,6 +336,8 @@ class CoodeWWPPlugin{
     $('.wpp-size-btn').click( function(){
         obj.pedido.tamanio   = $(this).attr('data-id');
         obj.pedido.tamanio_n = $(this).attr('data-name');
+        obj.pedido.precio    = $('#tam-price-'+obj.pedido.tamanio).html();
+
         $('#indication-size').html(obj.pedido.tamanio_n);
         obj.canvas_adm.setImg(0, obj.pedido.material_img_url);
         obj.canvas_adm.setImg(1, obj.pedido.forma_img_url);
@@ -378,13 +380,14 @@ class CoodeWWPPlugin{
       $(".WPP_pop_up_wrapper").css('display','none');
       obj.save_product_img();
       $('#WPP-img-final').attr('src',obj.pedido.imagen);
+      obj.update_price();
       obj.go_to_step(5);
     });
 
     //se presiona el boton de agregar al carrito
     $('#special-add-to-cart').click(function(){
       $.post(WPP_POST_URL,obj.pedido, function(){
-
+        location.reload(true);
       });
     });
 
@@ -392,6 +395,16 @@ class CoodeWWPPlugin{
     $('#start-over').click(function(){
       obj.go_to_step(1);
     });
+
+    //si se edita el selector de cantidad
+    $('#helper-quantity-input').change(function(){
+      obj.pedido.cantidad = $('#helper-quantity-input').val();
+      obj.update_price();
+    });
+  }
+
+  update_price(){
+    $('#final-price').text(this.pedido.cantidad * this.pedido.precio);
   }
 
   setClass(el,cl){
@@ -452,7 +465,7 @@ class CoodeWWPPlugin{
           '</div>'+
           '<div class="details"><h5>'+mat.nombre+'</h5>'+
             '  <h5 class="m-t-5">'+
-                '  Precio: <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>'+mat.precio+'</span></ins></h5>'+
+                '  Precio: <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span><i id="tam-price-'+mat.id+'">'+mat.precio+'</i></span></ins></h5>'+
           '</div>'+
       '</div></div>';
     }
@@ -487,7 +500,9 @@ class CoodeWWPPlugin{
       e.css('display', 'none');
     }
     for (let c=0;c<tam.length;c++){
-      let e = $('#tama-'+tam[c]);
+      let e = $('#tama-'+tam[c].id);
+      e.attr('data-price', tam[c].precio);
+      $('#tam-price-'+tam[c].id).text(tam[c].precio);
       e.css('display', 'inline-block');
     }
   }

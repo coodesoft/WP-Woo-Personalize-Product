@@ -7,7 +7,13 @@
       "imj_ej_url":"/materiales/OSB.jpg",
       "abreviacion":"OSB",
       "id":1,
-      "formas":[{"id_forma":"1", "tamanos":["1"]}, {"id_forma":"3","tamanos":["2","3"]}, {"id_forma":"6","tamanos":["4"]}, {"id_forma":"2","tamanos":["1"]}, {"id_forma":"4","tamanos":["1"]}, {"id_forma":"5","tamanos":["6"]}]
+      "formas":[
+        {"id_forma":"1", "tamanos":[{"id":"1", "precio":"100"}]},
+        {"id_forma":"3", "tamanos":[{"id":"2", "precio":"100"}, {"id":"3", "precio":"100"}]},
+        {"id_forma":"6", "tamanos":[{"id":"4", "precio":"100"}]},
+        {"id_forma":"2", "tamanos":[{"id":"1", "precio":"100"}]},
+        {"id_forma":"4", "tamanos":[{"id":"1", "precio":"100"}]},
+        {"id_forma":"5", "tamanos":[{"id":"6", "precio":"100"}]}]
     },
     {
       "nombre":"Pino",
@@ -17,7 +23,11 @@
       "abreviacion":"Pino",
       "id":2,
 
-      "formas":[{"id_forma":"3", "tamanos":["2","3"]}, {"id_forma":"6", "tamanos":["4"]}, {"id_forma":"7", "tamanos":["5"]}, {"id_forma":"5", "tamanos":["6"]}]
+      "formas":[
+        {"id_forma":"3", "tamanos":[{"id":"2", "precio":"100"},{"id":"3", "precio":"100"}]},
+        {"id_forma":"6", "tamanos":[{"id":"4", "precio":"100"}]},
+        {"id_forma":"7", "tamanos":[{"id":"5", "precio":"100"}]},
+        {"id_forma":"5", "tamanos":[{"id":"6", "precio":"100"}]}]
     }
   ],
 
@@ -71,7 +81,6 @@
       "id":1,
       "nombre":"18cm",
       "descripcion":"",
-      "precio":"",
       "style":"width: 100px; margin-left: -50px; height: 120px; margin-top: -60px;",
       "abreviacion":""
     },
@@ -79,7 +88,6 @@
       "id":2,
       "nombre":"14x14cm",
       "descripcion":"",
-      "precio":"",
       "style":"width: 56px; margin-left: -28px; height: 84px; margin-top: -42px;",
       "abreviacion":""
     },
@@ -87,7 +95,6 @@
       "id":3,
       "nombre":"9x9cm",
       "descripcion":"",
-      "precio":"",
       "style":"width: 36px; margin-left: -18px; height: 56px; margin-top: -28px;",
       "abreviacion":""
     },
@@ -95,7 +102,6 @@
       "id":4,
       "nombre":"14x21cm",
       "descripcion":"",
-      "precio":"",
       "style":"width: 100px; margin-left: -50px; height: 120px; margin-top: -60px;",
       "abreviacion":""
     },
@@ -103,7 +109,6 @@
       "id":5,
       "nombre":"9x18cm",
       "descripcion":"",
-      "precio":"",
       "style":"width: 56px; margin-left: -28px; height: 84px; margin-top: -42px;",
       "abreviacion":""
     },
@@ -111,7 +116,6 @@
       "id":6,
       "nombre":"Modulos 9x9cm",
       "descripcion":"",
-      "precio":"",
       "style":"width: 56px; margin-left: -28px; height: 84px; margin-top: -42px;",
       "abreviacion":""
     }

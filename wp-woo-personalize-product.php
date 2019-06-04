@@ -16,6 +16,7 @@ function handle_WPP_add_to_cart(){
   $salida = [];
 
   if (count($post) == 0) { return false; }
+  if (!isset($post['material'])){ return false; }
 
   $product = new WC_Product();
   $product->set_name(htmlspecialchars($post['material_n']).' '.htmlspecialchars($post['forma_n'])).' '.htmlspecialchars($post['tamanio_n']);
@@ -23,6 +24,7 @@ function handle_WPP_add_to_cart(){
   $product->set_catalog_visibility('visible');
   $product->set_description("Producto personalizado ".htmlspecialchars($post['material_n']).' '.htmlspecialchars($post['forma_n'])).' '.htmlspecialchars($post['tamanio_n']);
   $product->set_price(htmlspecialchars($post['precio']));
+  $product->set_regular_price(htmlspecialchars($post['precio']));
   $product->set_manage_stock(true);
   $product->set_stock_quantity(htmlspecialchars($post['cantidad']));
   $product->set_stock_status('instock');
@@ -77,8 +79,12 @@ function handle_WPP_add_to_cart(){
   		);
   	}
   	update_post_meta($salida['product_id'],'_product_attributes',$productAttributes); // save the meta entry for product attributes
-  }
 
+
+  }
+  if ( $salida['product_id']){
+    WC()->cart->add_to_cart( $salida['product_id'],  htmlspecialchars($post['cantidad']));
+  }
   echo json_encode($salida);
   die();
 }
@@ -91,7 +97,7 @@ function coode_WPP_uploadMedia($image_url){
   $output_file = getcwd().'/wp-content/uploads/'.round(microtime(true) * 1000).'personalizado.png';
   file_put_contents( $output_file, base64_decode( $image_url ) );
 
-	$media = media_sideload_image($image_url,0);
+	$media = media_sideload_image($output_file,0);
 	$attachments = get_posts(array(
 		'post_type' => 'attachment',
 		'post_status' => null,
@@ -202,9 +208,7 @@ function coode_WPP_short_code_tour() {
                                     <p class="m-t-10" style="color: white; display: block; line-height: 1.2; background: transparent; padding: 0; font-size: 14px">
                                         <span id="final-name"></span>
                                     </p>
-                                    <p>
-                                        $<span id="final-price"></span>
-                                    </p>
+                                    <p>$<span id="final-price">0</span> </p>
                                 </div>
                             </div>
                         </div>
@@ -222,7 +226,7 @@ function coode_WPP_short_code_tour() {
                         <div class="helper-buttons-row m-t-20">
                             <div class="quantity" id="helper-quantity">
                                 <label>Cantidad: </label>
-                                <input type="number" min="0" max="20" value="1" id="helper-quantity-input">
+                                <input type="number" min="1" max="20" value="1" id="helper-quantity-input">
                             </div>
                             <div class="button green" id="special-add-to-cart">
                                 <i class="fa fa-cart-plus" aria-hidden="true"></i> Agregar al carrito
