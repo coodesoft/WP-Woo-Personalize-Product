@@ -82,6 +82,11 @@ function handle_WPP_add_to_cart(){
 
   }
   if ( $salida['product_id']){
+    WC()->frontend_includes();
+    WC()->session = new WC_Session_Handler();
+    WC()->session->init();
+    WC()->customer = new WC_Customer( get_current_user_id(), true );
+    WC()->cart = new WC_Cart();
     WC()->cart->add_to_cart( $salida['product_id'],  htmlspecialchars($post['cantidad']));
   }
   echo json_encode($salida);
@@ -89,11 +94,11 @@ function handle_WPP_add_to_cart(){
 }
 
 function coode_WPP_uploadMedia($image_url){
-	require_once('wp-admin/includes/image.php');
-	require_once('wp-admin/includes/file.php');
-	require_once('wp-admin/includes/media.php');
+	require_once('includes/image.php');
+	require_once('includes/file.php');
+	require_once('includes/media.php');
   $image_url = preg_replace( '/data:image\/.*;base64,/', '', $image_url );
-  $output_file = getcwd().'/wp-content/uploads/'.round(microtime(true) * 1000).'personalizado.png';
+  $output_file = getcwd().'/../wp-content/uploads/'.round(microtime(true) * 1000).'personalizado.png';
   file_put_contents( $output_file, base64_decode( $image_url ) );
 
   $upload_dir = wp_upload_dir();
@@ -131,8 +136,8 @@ function coode_WPP_short_code_tour() {
         </div>
         <div class="closer-edit"><div id="edit-closer" class="closer"></div></div>
         <div class="WPP_editor_btn">
-          <div class="upload-photo button green">Reemplazar imagen</div>
-          <div class="go-to-cart button red">Bien, estoy satisfecho</div>
+          <div class="upload-photo button red">Reemplazar imagen</div>
+          <div class="go-to-cart button green">Bien, estoy satisfecho</div>
         </div>
       </div>
     </div>
@@ -237,9 +242,6 @@ function coode_WPP_short_code_tour() {
                             <div class="button green" id="special-add-to-cart">
                                 <i class="fa fa-cart-plus" aria-hidden="true"></i> Agregar al carrito
                             </div>
-                            <div class="button red" id="start-over">
-                                <i class="fa fa-undo" aria-hidden="true"></i>Empezar de nuevo
-                            </div>
                         </div>
                     </div>
                     <div class="added-panel down" id="added-panel">
@@ -271,7 +273,7 @@ function coode_WPP_short_code_tour() {
 </div>
 <script>
   var WPP_URL      = "'.plugins_url('data', __FILE__).'";
-  var WPP_POST_URL = "'.admin_url('wppaddtocart').'";
+  var WPP_POST_URL = "'.admin_url('admin-post.php?action=wppaddtocart').'";
 </script>
 ';
 }
