@@ -111,10 +111,11 @@ function coode_WPP_uploadMedia($image_url){
     'post_content' => '',
     'post_status' => 'inherit',
     'file' => sanitize_file_name( $filename ),
-    'width'=> '1200', 'height'=>'1200'
   ];
   $attach_id = wp_insert_attachment( $attachment, $filename );
   $attach_data = wp_generate_attachment_metadata( $attach_id, $filename );
+  $attach_data['width']  = 1024;
+  $attach_data['height'] = 1024;
   wp_update_attachment_metadata( $attach_id, $attach_data );
 	return $attach_id;
 }
