@@ -434,13 +434,10 @@ label {
     margin-right: auto;
     -webkit-transition: all 0.4s ease-out;
     transition: all 0.4s ease-out;
+    font-size: 0.85em;
+    padding: 0px !important;
 }
 
-#start-over {
-    width: 130px;
-    height: 30px;
-    line-height: 30px;
-}
 .button.red {
     background: #ef0d33;
 }
@@ -651,13 +648,9 @@ label {
 .final-image img{height: 100%;}
 
 .upload-photo{
-  background: #006fff;padding: 0px 12px;
-  color: #fff;font-weight: bold;
-  display: inline-block;
+  display: inline-block; cursor:pointer;
 }
 
 .go-to-cart{
-  background: #02a236;padding: 0px 12px;
-  color: #fff;font-weight: bold;
-  display: inline-block;
+  display: inline-block; cursor:pointer;
 }

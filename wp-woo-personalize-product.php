@@ -131,8 +131,8 @@ function coode_WPP_short_code_tour() {
         </div>
         <div class="closer-edit"><div id="edit-closer" class="closer"></div></div>
         <div class="WPP_editor_btn">
-          <div class="upload-photo">Reemplazar imagen</div>
-          <div class="go-to-cart">Bien, estoy satisfecho</div>
+          <div class="upload-photo button green">Reemplazar imagen</div>
+          <div class="go-to-cart button red">Bien, estoy satisfecho</div>
         </div>
       </div>
     </div>
@@ -237,10 +237,9 @@ function coode_WPP_short_code_tour() {
                             <div class="button green" id="special-add-to-cart">
                                 <i class="fa fa-cart-plus" aria-hidden="true"></i> Agregar al carrito
                             </div>
-                        </div>
-                        <div class="button red small m-t-20" id="start-over">
-                            <i class="fa fa-undo" aria-hidden="true"></i>
-                            Empezar de nuevo
+                            <div class="button red" id="start-over">
+                                <i class="fa fa-undo" aria-hidden="true"></i>Empezar de nuevo
+                            </div>
                         </div>
                     </div>
                     <div class="added-panel down" id="added-panel">
@@ -259,7 +258,7 @@ function coode_WPP_short_code_tour() {
                                     Checkout
                                 </div>
                             </a> -->
-                            <div class="button green" onclick="onCheckout()">
+                            <div class="button green" >
                                 Checkout
                             </div>
                         </div>
