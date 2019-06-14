@@ -649,3 +649,15 @@ label {
     cursor: pointer;
 }
 .final-image img{height: 100%;}
+
+.upload-photo{
+  background: #006fff;padding: 0px 12px;
+  color: #fff;font-weight: bold;
+  display: inline-block;
+}
+
+.go-to-cart{
+  background: #02a236;padding: 0px 12px;
+  color: #fff;font-weight: bold;
+  display: inline-block;
+}

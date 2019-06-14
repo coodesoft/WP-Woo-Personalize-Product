@@ -225,7 +225,7 @@ class CoodeWWPPlugin{
 
     this.stage_DOM_obj  = [];
 
-    this.pedido = {'material':null,'material_n':'', 'material_img_url':'', 'forma':null, 'forma_n':'','forma_img_url':'', 'tamanio':null, 'tamanio_n':'', 'imagen':null, 'precio':0, 'cantidad':1};
+    this.pedido = {'plugin':'WPP-coode', 'material':null,'material_n':'', 'material_img_url':'', 'forma':null, 'forma_n':'','forma_img_url':'', 'tamanio':null, 'tamanio_n':'', 'imagen':null, 'precio':0, 'cantidad':1};
 
     this.actual_step   = 0;
     this.anterior_step = 0;
