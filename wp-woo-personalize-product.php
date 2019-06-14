@@ -275,6 +275,7 @@ function coode_WPP_short_code_tour() {
 <script>
   var WPP_URL      = "'.plugins_url('data', __FILE__).'";
   var WPP_POST_URL = "'.admin_url('admin-post.php?action=wppaddtocart').'";
+  var WPP_CART_URL = "'.get_permalink( wc_get_page_id( 'cart' ) ).'";
 </script>
 ';
 }

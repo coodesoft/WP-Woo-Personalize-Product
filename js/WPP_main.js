@@ -387,7 +387,7 @@ class CoodeWWPPlugin{
     //se presiona el boton de agregar al carrito
     $('#special-add-to-cart').click(function(){
       $.post(WPP_POST_URL,obj.pedido, function(){
-        location.reload(true);
+        window.location.href = WPP_CART_URL;
       });
     });
 
